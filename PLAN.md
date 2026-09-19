@@ -55,6 +55,9 @@ GitHub Actions 在提交到 main 和打开或更新 PR 时执行。检查维护�
 - [x] 网站统一名称并从完整目录生成可直接阅读的 HTML，提供搜索和分类筛选。
 - [x] 补充标题、描述、canonical、社交分享元数据与 sitemap。
 - [x] GitHub Pages 已发布，线上搜索、移动端及无 JavaScript 阅读验证通过。
+- [x] 完整目录中的仓库自身条目已更新为 Awesome Jev，清除旧名称与旧定位。
+- [x] 网站已融合工具目录的搜索、分类和卡片／列表浏览方式，并保留原有配色与插画。
+- [x] Spellbook Illustrated Gallery 模板已移除固定图片与整站示例，改为生图、整页设计及六类扩展方向的指导；[PR #205](https://github.com/majiayu000/spellbook/pull/205) 已合并。
 - Google 是否收录需要独立查询，仓库检查通过不代表已收录。
 
 参考仓库：[awesome-grok-bot](https://github.com/majiayu000/awesome-grok-bot)。参考其清楚的入口和自动检查，不照搬面向不同数据的复杂校验规则。

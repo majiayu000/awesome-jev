@@ -824,7 +824,7 @@
 | rhc98/awesome-jev | Projects built on Jev (TypeSafe AI's System One model), curated by Jev itself. | [仓库](https://github.com/rhc98/awesome-jev) · [网站](https://awesome-jev.xyz) |
 | sontakey/awesome-jev | Unofficial list of insanely useful TypeSafe AI Jev / System One projects | [仓库](https://github.com/sontakey/awesome-jev) |
 | JohnDotOwl/awesome-jev | A curated list of projects built on Jev, TypeSafe AI's System One model. | [仓库](https://github.com/JohnDotOwl/awesome-jev) |
-| majiayu000/anosomejev | Curated Awesome Jev — high-signal map of TypeSafe System One / Jev (Must-30, trust labels, critique, 中文). Not affiliated with TypeSafe. | [仓库](https://github.com/majiayu000/anosomejev) |
+| Awesome Jev | Community-maintained bilingual directory of Jev / TypeSafe System One projects, SDKs, tutorials, and evaluations. | [仓库](https://github.com/majiayu000/awesome-jev) |
 | thevibeworks/jevgate | Which shell commands may your coding agent run without asking? An allowlist proves what it can; Jev, a no-text model, judges only the rest. Claude Code hook + CLI, measured. | [仓库](https://github.com/thevibeworks/jevgate) |
 | wh000wh000/awesome-jev-live | Evidence-graded index of the Jev / TypeSafe System One ecosystem. Rebuilt every 2 hours in 20 languages. | [仓库](https://github.com/wh000wh000/awesome-jev-live) |
 | yangzhou-chaofan/awesome-jev-prompt | latest top 100 showcases for jev (keep updating) from x / github / latest sources | [仓库](https://github.com/yangzhou-chaofan/awesome-jev-prompt) |
