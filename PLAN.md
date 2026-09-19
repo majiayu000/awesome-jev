@@ -54,7 +54,7 @@ GitHub Actions 在提交到 main 和打开或更新 PR 时执行。检查维护�
 - 现有 [PR #2](https://github.com/majiayu000/awesome-jev/pull/2) 包含教程、示例和网站改版，需按最终网站范围单独审查，并与本次首页调整协调。
 - [x] 网站统一名称并从完整目录生成可直接阅读的 HTML，提供搜索和分类筛选。
 - [x] 补充标题、描述、canonical、社交分享元数据与 sitemap。
-- [ ] GitHub Pages 发布并验证线上搜索、移动端及无 JavaScript 阅读。
+- [x] GitHub Pages 已发布，线上搜索、移动端及无 JavaScript 阅读验证通过。
 - Google 是否收录需要独立查询，仓库检查通过不代表已收录。
 
 参考仓库：[awesome-grok-bot](https://github.com/majiayu000/awesome-grok-bot)。参考其清楚的入口和自动检查，不照搬面向不同数据的复杂校验规则。
