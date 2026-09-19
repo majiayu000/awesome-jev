@@ -1,9 +1,7 @@
 # GitHub Pages
 
-The repository includes a static website in `docs/`. It is maintained separately from the Markdown resource list and has not been updated as part of the repository documentation cleanup.
+The site is generated from `catalog/FULL.md`. Run `python3 scripts/build_site.py` after changing the catalog and commit `docs/index.html`. CI checks the generated output with `python3 scripts/build_site.py --check`.
 
-To publish it when ready, configure Settings → Pages → Deploy from a branch → `main` → `/docs`.
+Pages publishes `main` → `/docs` at https://majiayu000.github.io/awesome-jev/. Preview with `python3 -m http.server 8080 --directory docs`.
 
-For the `awesome-jev` repository, the project-site URL would be `https://majiayu000.github.io/awesome-jev/`. Renaming a repository changes its default project-site path; review the website’s own links before enabling or republishing it.
-
-Preview the existing site with `cd docs && python3 -m http.server 8080`.
+All resources are present in HTML without JavaScript. JavaScript adds search and category filtering. Canonical and social metadata use the project-site URL; sitemap.xml lists the main page. The project-level robots.txt does not control the host-root robots.txt.

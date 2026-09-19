@@ -7,6 +7,6 @@ Start with the official client for your programming language.
 - [system-one-adapter-python](https://github.com/typesafe-ai/system-one-adapter-python) - Compare Jev and language models through the same decision interface.
 - [TypeSafe skills](https://github.com/typesafe-ai/skills) - Official guidance for coding agents using Jev.
 
-For more community clients, see [awesomejev.com](https://awesomejev.com/). Check examples, maintenance status, and supported API versions before choosing a client. Community clients are not official TypeSafe packages.
+For more community clients, see the [complete SDK directory](../catalog/FULL.md#sdks). Check examples, maintenance status, and supported API versions before choosing a client. Community clients are not official TypeSafe packages.
 
 [All categories](../SUMMARY.md) · [Sources](../SOURCE.md)

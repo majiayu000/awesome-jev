@@ -1,12 +1,20 @@
 # Awesome Jev
 
+[![Checks](https://github.com/majiayu000/awesome-jev/actions/workflows/checks.yml/badge.svg)](https://github.com/majiayu000/awesome-jev/actions/workflows/checks.yml)
+
 Jev（TypeSafe System One）的开源项目、SDK、教程和评测精选，帮助你寻找接入方式与参考实现。
 
-[English](README.md) · [收录与贡献说明](CONTRIBUTING.md) · [资料来源](SOURCE.md)
+[在线目录](https://majiayu000.github.io/awesome-jev/) · [English](README.md) · [收录与贡献说明](CONTRIBUTING.md) · [资料来源](SOURCE.md)
 
 本清单由社区维护，与 TypeSafe 无隶属关系。收录表示值得参考，不代表已通过安全、准确率或生产可用性验证。
 
 **[完整资源目录](catalog/FULL.md)** · 按类别浏览项目、工具、教程和文章。
+
+## 从这里开始
+
+1. 第一次了解 Jev，先看下方的官方文档和发布介绍，了解它能处理哪些判断。
+2. 准备接入项目，选择对应语言的 [SDK](taxonomy/sdks.md)，再按[路由](patterns/routing.md)或[结果检查](patterns/verification.md)的步骤试用。
+3. 寻找参考项目，浏览下方精选或[完整目录](catalog/FULL.md)；查看近期变化可读[社区动态](updates/README.md)。
 
 ## 目录
 
@@ -17,6 +25,7 @@ Jev（TypeSafe System One）的开源项目、SDK、教程和评测精选，帮�
 - [应用与游戏](#应用与游戏)
 - [评测与开源实现](#评测与开源实现)
 - [文章与中文资源](#文章与中文资源)
+- [使用前注意](#使用前注意)
 - [更多资料](#更多资料)
 
 ## 入门
@@ -74,6 +83,17 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 - [OrcaRouter 中文介绍](https://www.orcarouter.ai/zh-CN/blog/jev-typesafe-system-one-what-we-know) - 介绍产品与已有公开材料。
 - [宝玉的中文解读](https://x.com/dotey/status/2100109937237987823) - 解释 Jev 的用途，属于第三方解读，不是独立评测。
 - [jev-report](https://github.com/HackSing/jev-report) - 中文报告与复现材料；2026-09-19 已确认仓库存在，本清单未复现其中结果。
+
+## 使用前注意
+
+- 输出格式正确，不代表判断正确；先用你自己的样本验证。
+- 一个请求含多个意图时，分别判断，避免用一个类别概括所有需求。
+- 精确计算和日期运算交给代码处理。
+- 置信度阈值需要在实际数据上测量，不能直接照搬示例。
+- 对比速度、成本和准确率时，记录模型版本、输入、测试条件和失败结果。
+- 模型参与工具调用时，在程序中限制权限，并为不确定的结果保留人工处理路径。
+
+更多说明见[能力局限](taxonomy/critique-limits.md)和[评测方法](taxonomy/benchmarks-replicas.md)。以上是使用建议，本仓库未独立复现所有收录项目。
 
 ## 更多资料
 

@@ -1,12 +1,20 @@
 # Awesome Jev
 
+[![Checks](https://github.com/majiayu000/awesome-jev/actions/workflows/checks.yml/badge.svg)](https://github.com/majiayu000/awesome-jev/actions/workflows/checks.yml)
+
 Selected open-source projects, SDKs, tutorials, and evaluations for Jev, TypeSafe’s System One model.
 
-[简体中文](README_zh.md) · [Contributing](CONTRIBUTING.md) · [Sources](SOURCE.md)
+[Browse website](https://majiayu000.github.io/awesome-jev/) · [简体中文](README_zh.md) · [Contributing](CONTRIBUTING.md) · [Sources](SOURCE.md)
 
 A community-maintained list, unaffiliated with TypeSafe. Inclusion is a reading recommendation, not a certification of safety, accuracy, or production readiness.
 
 **[Browse all resources](catalog/FULL.md)** — Projects, tools, tutorials, and articles organized by category.
+
+## How to use this list
+
+1. New to Jev? Start with the documentation and launch article below to understand its decision tasks.
+2. Integrating it? Choose an [SDK](taxonomy/sdks.md), then follow the [routing](patterns/routing.md) or [verification](patterns/verification.md) guide.
+3. Looking for examples? Browse the selections below or the [complete directory](catalog/FULL.md). See [dated updates](updates/README.md) for recent changes.
 
 ## Contents
 
@@ -17,6 +25,7 @@ A community-maintained list, unaffiliated with TypeSafe. Inclusion is a reading 
 - [Applications and games](#applications-and-games)
 - [Evaluations and open implementations](#evaluations-and-open-implementations)
 - [Articles and Chinese resources](#articles-and-chinese-resources)
+- [Before using these projects](#before-using-these-projects)
 - [Further reading](#further-reading)
 
 ## Getting started
@@ -74,6 +83,17 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 - [OrcaRouter Chinese introduction](https://www.orcarouter.ai/zh-CN/blog/jev-typesafe-system-one-what-we-know) - An overview of the product and available evidence.
 - [Baoyu’s Chinese explanation](https://x.com/dotey/status/2100109937237987823) - An explanation of Jev’s uses; this is commentary, not an independent benchmark.
 - [jev-report](https://github.com/HackSing/jev-report) - A Chinese report and reproduction materials; repository existence was checked on 2026-09-19, but its results have not been reproduced here.
+
+## Before using these projects
+
+- Valid output can still be wrong; evaluate on your own examples first.
+- Separate distinct intents instead of forcing a compound request into one category.
+- Keep exact arithmetic and date calculations in code.
+- Measure confidence thresholds on your actual data instead of copying example values.
+- Record model versions, inputs, test conditions, and failures when comparing latency, cost, or accuracy.
+- Enforce tool permissions in code and provide human review for uncertain decisions.
+
+See [model limitations](taxonomy/critique-limits.md) and [evaluation methods](taxonomy/benchmarks-replicas.md). These are usage recommendations; this repository has not independently reproduced every listed project.
 
 ## Further reading
 
