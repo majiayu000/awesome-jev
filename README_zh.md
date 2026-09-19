@@ -4,7 +4,7 @@
 
 Jev（TypeSafe System One）的开源项目、SDK、教程和评测精选，帮助你寻找接入方式与参考实现。
 
-[English](README.md) · [收录与贡献说明](CONTRIBUTING.md) · [资料来源](SOURCE.md)
+[在线目录](https://majiayu000.github.io/awesome-jev/) · [English](README.md) · [收录与贡献说明](CONTRIBUTING.md) · [资料来源](SOURCE.md)
 
 本清单由社区维护，与 TypeSafe 无隶属关系。收录表示值得参考，不代表已通过安全、准确率或生产可用性验证。
 

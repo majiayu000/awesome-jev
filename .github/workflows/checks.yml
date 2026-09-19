@@ -14,7 +14,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+          fetch-depth: 2
       - name: Check links, translations, and data
         run: python3 scripts/check_repository.py
+      - name: Check generated website
+        run: python3 scripts/build_site.py --check
       - name: Check whitespace
-        run: git show --format= --check HEAD
+        run: git diff --check HEAD^ HEAD

@@ -39,8 +39,8 @@
 
 打开新增链接，检查本地相对链接，核对中英文首页的一致性，并运行 `python3 scripts/check_repository.py` 与 `git diff --check`。自动检查会核对中英文首页的外部链接、维护文档的相对链接和目录 JSON 格式；外部网站是否可达仍需人工确认。不要为了文档修改引入构建系统或测试框架。
 
-`docs/` 是单独维护的网页及其数据，当前没有从 Markdown 自动生成网页的脚本。修改这里的资源文档不会自动更新网页；不要声称两者已经同步。
+网页目录由 `catalog/FULL.md` 生成。修改完整目录后运行 `python3 scripts/build_site.py`，同时提交 `docs/index.html`；用 `python3 scripts/build_site.py --check` 检查是否同步。`docs/data/entries.json` 保留历史收集记录，不再作为网页展示数据。
 
 ## English summary
 
-Provide a public link and a plain-language description of the use case. Attribute claims to their sources, distinguish commentary from experiments, and state when results have not been reproduced here. Keep both READMEs aligned. Use the category pages for additional resources and the dated updates for news. Website files under `docs/` are maintained separately.
+Provide a public link and a plain-language description of the use case. Attribute claims to their sources, distinguish commentary from experiments, and state when results have not been reproduced here. Keep both READMEs aligned. Use the category pages for additional resources and the dated updates for news. After editing `catalog/FULL.md`, run `python3 scripts/build_site.py` and commit the generated `docs/index.html` too.

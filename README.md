@@ -4,7 +4,7 @@
 
 Selected open-source projects, SDKs, tutorials, and evaluations for Jev, TypeSafe’s System One model.
 
-[简体中文](README_zh.md) · [Contributing](CONTRIBUTING.md) · [Sources](SOURCE.md)
+[Browse website](https://majiayu000.github.io/awesome-jev/) · [简体中文](README_zh.md) · [Contributing](CONTRIBUTING.md) · [Sources](SOURCE.md)
 
 A community-maintained list, unaffiliated with TypeSafe. Inclusion is a reading recommendation, not a certification of safety, accuracy, or production readiness.
 
