@@ -2,6 +2,7 @@
 (() => {
   "use strict";
   const query = document.getElementById("q");
+  const heroQuery = document.getElementById("hero-q");
   const category = document.getElementById("category");
   const status = document.getElementById("status");
   const grid = document.getElementById("grid");
@@ -32,9 +33,22 @@
     document.getElementById("page-prev").disabled = page === 1;
     document.getElementById("page-next").disabled = page === pages;
   }
-  function filter() { page = 1; render(); }
+  function filter() { page = 1; heroQuery.value = query.value; render(); }
   function reset() { query.value = ""; category.value = ""; filter(); }
   query.addEventListener("input", filter);
+  document.getElementById("hero-search").addEventListener("submit", (event) => {
+    event.preventDefault();
+    query.value = heroQuery.value;
+    category.value = "";
+    filter();
+    document.getElementById("resources").scrollIntoView({ block: "start" });
+    query.focus({ preventScroll: true });
+  });
+  const views = Array.from(document.querySelectorAll("button[data-view]"));
+  for (const button of views) button.addEventListener("click", () => {
+    grid.dataset.view = button.dataset.view;
+    for (const view of views) view.setAttribute("aria-pressed", String(view === button));
+  });
   category.addEventListener("change", filter);
   for (const button of buttons) button.addEventListener("click", () => {
     category.value = button.dataset.category;
@@ -61,6 +75,8 @@
       event.preventDefault(); query.focus();
     }
   });
+  document.getElementById("hero-search").hidden = false;
+  document.getElementById("view-switch").hidden = false;
   document.getElementById("filters").hidden = false;
   document.getElementById("category-buttons").hidden = false;
   render();

@@ -8,6 +8,8 @@ Awesome Jev 是社区维护的资源清单，与 TypeSafe 无隶属关系。
 
 ## 视觉与插画
 
+目录布局参考 [Shipper Tool Directory](https://dev-curated.shipper.now/) 的搜索、分类标签和卡片／列表切换方式，结合本站的暖纸色、衬线标题、橙色强调与原创插画重新设计。
+
 本页使用维护者 Spellbook 的 Illustrated Gallery 设计指导，按 Jev 的用途重新设计整页。未复用旧模板的花卉、锦鲤、白鹭、月夜或人物素材。
 
 `assets/decision-paths.webp` 与 `assets/evaluation-study.webp` 使用内置 imagegen 为本项目生成，分别是路径选择与判断校准的概念插画，不是产品截图或真实测试装置。精选卡片的符号由 CSS 绘制，仅表示接入、浏览器和路由主题。
