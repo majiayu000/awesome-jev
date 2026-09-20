@@ -227,6 +227,9 @@
 
 | 项目或资源 | 说明 | 链接 |
 | --- | --- | --- |
+| jev.nvim | Neovim plugin that scores functions against a natural-language question and lists results in quickfix. | [仓库](https://github.com/valentynkit/jev.nvim) |
+| jev-commit | Git commit-message hook that compares the message with the staged diff and checks for possible credentials. | [仓库](https://github.com/valentynkit/jev-commit) |
+| jev-belay | Claude Code Stop hook that checks transcript evidence for unverified completion claims; errors allow the turn to end. | [仓库](https://github.com/valentynkit/jev-belay) |
 | foreman | Software Factory Foreman: an agent supervisor that uses Jev decisions to keep coding agents on task. | [仓库](https://github.com/thruwire/foreman) · [文章](https://x.com/JoshARosen/status/2100573432089866717) |
 | jev-review (devagrawal09) | A staged code-review workflow and local dashboard built with TypeSafe Jev. | [仓库](https://github.com/devagrawal09/jev-review) · [文章](https://x.com/0xLogicrw/status/2100478725393686556) |
 | jev-router (gargpratyush) | Route to the cheapest model in claude code for your task using jev-router | [仓库](https://github.com/gargpratyush/jev-router) |
@@ -342,6 +345,7 @@
 
 | 项目或资源 | 说明 | 链接 |
 | --- | --- | --- |
+| jev-skip | Browser extension that uses Jev to identify potential sponsor segments from YouTube captions. | [仓库](https://github.com/valentynkit/jev-skip) |
 | Jev Ultrafast | Browser Use's ultrafast agent: Jev picks the operation and DOM element in one request; a small LLM only writes text when typing is needed. | [仓库](https://github.com/browser-use/jev-ultrafast) · [网站](https://browser-use.com) · [文章](https://x.com/gregpr07/status/2100411066966749359) |
 | typesafe-computer-use | Computer use for about $0.0002 a step: OCR the screen, classify the next action with TypeSafe, click. macOS. | [仓库](https://github.com/awlevin/typesafe-computer-use) · [文章](https://x.com/awlevin/status/2100262612428894676) |
 | mobile-jev | Standalone Android agent for Mobilerun where Jev makes every decision, with a live React studio and an Uber demo. | [仓库](https://github.com/droidrun/mobile-jev) |
@@ -564,6 +568,7 @@
 
 | 项目或资源 | 说明 | 链接 |
 | --- | --- | --- |
+| jev-plays-pokemon-red | PyBoy game agent where code handles routing and arithmetic and Jev selects among actions at decision points. | [仓库](https://github.com/valentynkit/jev-plays-pokemon-red) |
 | typesafe-mario | A TypeSafe/Jev agent that plays Super Mario Bros. from structured emulator state. | [仓库](https://github.com/fhshaik/typesafe-mario) |
 | jev-drone | Camera-only autonomous drone in MuJoCo with a small judgment model (TypeSafe Jev) in the loop at 2.5Hz | [仓库](https://github.com/RomanSlack/jev-drone) |
 | typesafe-snake | Snake auto-played by TypeSafe's Jev model: one System One choice per tick, legal moves and facts generated in code | [仓库](https://github.com/sorrycc/typesafe-snake) |

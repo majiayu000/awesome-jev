@@ -28,7 +28,7 @@ def anchors(path):
 
 # Historical research and the separately maintained website are outside this check.
 files = list(ROOT.glob("*.md"))
-for folder in ("taxonomy", "patterns", "catalog", "updates"):
+for folder in ("taxonomy", "patterns", "catalog", "updates", "guides", "examples"):
     files.extend((ROOT / folder).glob("*.md"))
 for path in files:
     for link in links(path):
