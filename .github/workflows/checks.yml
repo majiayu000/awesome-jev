@@ -19,6 +19,8 @@ jobs:
         run: python3 scripts/check_repository.py
       - name: Check generated website
         run: python3 scripts/build_site.py --check
+      - name: Check category pages and navigation
+        run: python3 -m unittest discover -s scripts -v
       - name: Check offline tutorial
         run: python3 -m unittest discover -s examples -v
       - name: Check whitespace

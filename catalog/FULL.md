@@ -232,7 +232,7 @@
 | jev-belay | Claude Code Stop hook that checks transcript evidence for unverified completion claims; errors allow the turn to end. | [仓库](https://github.com/valentynkit/jev-belay) |
 | foreman | Software Factory Foreman: an agent supervisor that uses Jev decisions to keep coding agents on task. | [仓库](https://github.com/thruwire/foreman) · [文章](https://x.com/JoshARosen/status/2100573432089866717) |
 | jev-review (devagrawal09) | A staged code-review workflow and local dashboard built with TypeSafe Jev. | [仓库](https://github.com/devagrawal09/jev-review) · [文章](https://x.com/0xLogicrw/status/2100478725393686556) |
-| jev-router (gargpratyush) | Route to the cheapest model in claude code for your task using jev-router | [仓库](https://github.com/gargpratyush/jev-router) |
+| jev-router (gargpratyush) | Per-turn model routing for Claude Code and Codex; requires Node.js 20.12+, a Jev key, and the corresponding CLI. | [仓库](https://github.com/gargpratyush/jev-router) |
 | jev-review (NiazMorshed2007) | Local-first MCP plugin for continuous software-quality review by AI coding agents, powered by Jev. | [仓库](https://github.com/NiazMorshed2007/jev-review) |
 | jev-mcp (jkudish) | Proof of concept MCP for Typesafe's new Jev AI model | [仓库](https://github.com/jkudish/jev-mcp) · [文章](https://x.com/0xLogicrw/status/2100478725393686556) |
 | pi-warden | Guardrails for Pi built on pi-typesafe that steer the agent instead of interrupting you: Jev judges irreversible and off-task tool calls, detects stuck loops, checks unverified done claims, flags slop | [仓库](https://github.com/DevMortimer/pi-warden) |

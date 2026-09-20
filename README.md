@@ -52,7 +52,7 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 
 ## Agent tools
 
-- [jev-router](https://github.com/gargpratyush/jev-router) - Select a model for a Claude Code task.
+- [jev-router](https://github.com/gargpratyush/jev-router) - Choose models for Claude Code and Codex tasks; requires Node.js 20.12+, a Jev key, and the corresponding logged-in CLI.
 - [jev-review — devagrawal09](https://github.com/devagrawal09/jev-review) - Code review workflow with a dashboard.
 - [jev-review — NiazMorshed2007](https://github.com/NiazMorshed2007/jev-review) - Local code review through an MCP plugin.
 - [foreman](https://github.com/thruwire/foreman) - Use Jev to monitor a coding agent’s work.

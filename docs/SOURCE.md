@@ -8,6 +8,8 @@ Awesome Jev 是社区维护的资源清单，与 TypeSafe 无隶属关系。
 
 ## 视觉与插画
 
+网页中的中文用途说明复用仓库中文首页，保留原始目录描述供对照。首页精选的接入条件与本次核对范围见[核对记录](https://github.com/majiayu000/awesome-jev/blob/main/guides/featured-review.md)。
+
 目录布局参考 [Shipper Tool Directory](https://dev-curated.shipper.now/) 的搜索、分类标签和卡片／列表切换方式，结合本站的暖纸色、衬线标题、橙色强调与原创插画重新设计。
 
 本页使用维护者 Spellbook 的 Illustrated Gallery 设计指导，按 Jev 的用途重新设计整页。未复用旧模板的花卉、锦鲤、白鹭、月夜或人物素材。

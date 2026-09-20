@@ -41,6 +41,7 @@ About 使用清晰的一句话介绍，并明确中英双语。Topics 围绕 Jev
 
 ```sh
 python3 scripts/check_repository.py
+python3 -m unittest discover -s scripts -v
 git diff --check
 ```
 
@@ -50,6 +51,10 @@ GitHub Actions 在提交到 main 和打开或更新 PR 时执行。检查维护�
 
 ## 后续工作
 
+- [x] 网页复用 38 条精选资源的中文用途说明，支持多关键词、大小写与全角字符搜索。
+- [x] 搜索、分类、页码和显示方式写入网址，可复制分享，并在刷新和前进后退时恢复。
+- [x] 生成 11 个独立分类页，提供分类介绍、原始资源、导航、独立 canonical 与 sitemap 条目。
+- [x] 2026-09-20 核对首页四个精选仓库的状态和接入条件，实际安装两个 SDK 与路由包；范围和未验证事项见[核对记录](guides/featured-review.md)。
 - [x] [PR #1](https://github.com/majiayu000/awesome-jev/pull/1) 的五个项目已核对原始 README，并纳入双语首页与完整目录；未复现作者的性能结果。
 - [x] [PR #2](https://github.com/majiayu000/awesome-jev/pull/2) 已审查，保留双语入门、工单示例与离线测试、资源推荐表单。旧网站和 README 精选数据生成器由当前完整目录网站替代；独立候选采集工具不纳入本次维护范围。
 - [x] 网站统一名称并从完整目录生成可直接阅读的 HTML，提供搜索和分类筛选。
