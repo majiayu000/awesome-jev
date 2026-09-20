@@ -26,6 +26,7 @@
 ## 使用方法
 
 - [双语入门教程](guides/start.md)
+- [踩坑与边界 / Gotchas](guides/gotchas.md)
 - [可运行的工单示例](examples/README.md)
 
 - [路由与分类](patterns/routing.md)
@@ -40,3 +41,4 @@
 - [历史研究笔记](research/00-overview.md)
 - [资料来源](SOURCE.md)
 - [参与贡献](CONTRIBUTING.md)
+

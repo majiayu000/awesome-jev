@@ -28,6 +28,7 @@ A community-maintained list, unaffiliated with TypeSafe. Inclusion is a reading 
 - [Evaluations and open implementations](#evaluations-and-open-implementations)
 - [Articles and Chinese resources](#articles-and-chinese-resources)
 - [Before using these projects](#before-using-these-projects)
+- [Field notes and gotchas](#field-notes-and-gotchas)
 - [Further reading](#further-reading)
 
 ## Getting started
@@ -102,11 +103,23 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 
 See [model limitations](taxonomy/critique-limits.md) and [evaluation methods](taxonomy/benchmarks-replicas.md). These are usage recommendations; this repository has not independently reproduced every listed project.
 
+
+## Field notes and gotchas
+
+Sharpest public pitfalls; full bilingual list in [guides/gotchas.md](guides/gotchas.md).
+
+- Valid format is not correct judgment — read [model limitations](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
+- One demo win is not a reproduction guarantee ([Pac-Man follow-up](https://x.com/ephraimduncan/status/2100554620254752981)).
+- Small-sample speed/cost writeups are not universal accuracy claims ([Every](https://every.to/also-true-for-humans/mini-vibe-check-typesafe-s-jev-judged-everything-i-ve-written-in-0-7-seconds)).
+- Open replicas are not official weights; negative results (e.g. [phishing-bench](https://github.com/anisselbd/jev-phishing-bench)) stay listed.
+- Featured-card checks are scoped: see [guides/featured-review.md](guides/featured-review.md).
+
 ## Further reading
 
 - [Resource categories](SUMMARY.md).
 - [Practical guides](SUMMARY.md#使用方法).
 - [Known limitations](taxonomy/critique-limits.md).
+- [Field notes and gotchas](guides/gotchas.md).
 - [Dated updates](updates/README.md).
 - [Research notes](research/00-overview.md).
 

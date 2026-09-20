@@ -28,6 +28,7 @@ Jev（TypeSafe System One）的开源项目、SDK、教程和评测精选，帮�
 - [评测与开源实现](#评测与开源实现)
 - [文章与中文资源](#文章与中文资源)
 - [使用前注意](#使用前注意)
+- [踩坑与边界](#踩坑与边界)
 - [更多资料](#更多资料)
 
 ## 入门
@@ -102,11 +103,23 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 
 更多说明见[能力局限](taxonomy/critique-limits.md)和[评测方法](taxonomy/benchmarks-replicas.md)。以上是使用建议，本仓库未独立复现所有收录项目。
 
+
+## 踩坑与边界
+
+精选几条最容易误读的公开事实；完整列表与英文对照见 [guides/gotchas.md](guides/gotchas.md)。
+
+- 格式正确不等于判断正确；先看官方 [模型能力局限](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md)。
+- 演示「赢过一次」不等于可复现（例：[Pac-Man 后续](https://x.com/ephraimduncan/status/2100554620254752981)）。
+- 小样本速度/成本文章不能外推成通用准确率（例：[Every 实验](https://every.to/also-true-for-humans/mini-vibe-check-typesafe-s-jev-judged-everything-i-ve-written-in-0-7-seconds)）。
+- 开源复刻不是官方权重；负结果（如 [phishing-bench](https://github.com/anisselbd/jev-phishing-bench)）同样收录。
+- 首页精选卡片的核对范围见 [guides/featured-review.md](guides/featured-review.md)：安装通过 ≠ 生产验收。
+
 ## 更多资料
 
 - [按资源类别查找](SUMMARY.md)。
 - [使用方法](SUMMARY.md#使用方法)。
 - [能力局限与评测注意事项](taxonomy/critique-limits.md)。
+- [踩坑与边界](guides/gotchas.md)。
 - [社区动态](updates/README.md)。
 - [历史研究笔记](research/00-overview.md)。
 

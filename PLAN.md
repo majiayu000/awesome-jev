@@ -68,3 +68,9 @@ GitHub Actions 在提交到 main 和打开或更新 PR 时执行。检查维护�
 - [ ] 等待 Google 后续抓取与收录。2026-09-20 检查时首页尚未收录，sitemap 显示“无法抓取”；线上 sitemap 返回 HTTP 200 且 XML 可解析，尚不能确认 Google 抓取失败的原因。提交成功不代表已收录，后续需在 Search Console 复查处理状态。
 
 参考仓库：[awesome-grok-bot](https://github.com/majiayu000/awesome-grok-bot)。参考其清楚的入口和自动检查，不照搬面向不同数据的复杂校验规则。
+
+## 2026-09-20 追加
+
+- [x] 新增 [guides/gotchas.md](guides/gotchas.md) 与首页「踩坑」入口。
+- [x] 新增 [updates/2026-09-20.md](updates/2026-09-20.md) 记录清单/站点自身进展与精选核对。
+
