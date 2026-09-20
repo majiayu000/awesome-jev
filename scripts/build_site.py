@@ -47,6 +47,7 @@ TEMPLATE = '''<!doctype html>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3f0e9">
 <title>Awesome Jev — 开源项目、工具与实践</title>
 <meta name="description" content="查找 Jev / TypeSafe System One 的开源项目、SDK、浏览器自动化、教程与评测。从入门精选到完整资源目录，按用途探索。">
+<meta name="google-site-verification" content="RU2-TUFIhPM_cDASRGjQicB0VysuuAHV3V9HiHZ9Yn0" />
 <link rel="canonical" href="https://majiayu000.github.io/awesome-jev/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Awesome Jev"><meta property="og:title" content="Awesome Jev — 开源项目、工具与实践">
 <meta property="og:description" content="从一次判断，到一个项目。探索 Jev 的 SDK、开源工具、教程与评测。"><meta property="og:url" content="https://majiayu000.github.io/awesome-jev/">
