@@ -1,0 +1,43 @@
+name: Resource suggestion / 推荐资源
+description: Suggest a Jev project, tutorial or evaluation with primary-source evidence.
+title: "[Resource] "
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Primary source / 原始链接
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case and Jev's role / 用途与 Jev 的作用
+      description: What goes into Jev, and how does the project use the result?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / 证据
+      description: Link to relevant code, documentation or a reproducible evaluation. Prefer commit-pinned code links.
+    validations:
+      required: true
+  - type: dropdown
+    id: verification
+    attributes:
+      label: What did you check? / 实际检查了什么？
+      options:
+        - Metadata or listing only / 仅元数据或目录
+        - Read primary documentation or source / 已读原始文档或代码
+        - Ran a documented example / 实际运行过示例
+        - Reproduced an evaluation / 实际复现过评测
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations and date / 局限、未确认事项与检查日期
+      description: Required keys/services, failures, untested claims, and what was actually run.
+    validations:
+      required: true

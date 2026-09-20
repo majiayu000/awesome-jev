@@ -21,7 +21,7 @@
 - [x] 首页说明格式正确与判断正确的区别，并补充使用注意事项。
 - [x] 添加 CI 状态入口；状态以实际运行结果为准。
 - [x] 网站分享图片使用首页截图，已配置 Open Graph 与 Twitter 图片链接。
-- [ ] GitHub 仓库单独的 Social preview 图片设置仍需上传。
+- [x] GitHub 仓库单独的 Social preview 图片已上传并在设置页确认显示。
 
 About 使用清晰的一句话介绍，并明确中英双语。Topics 围绕 Jev、TypeSafe、System One、智能体和浏览器自动化；不堆砌无关热词。未发布网站时不填写不存在的 Homepage。
 
@@ -50,8 +50,8 @@ GitHub Actions 在提交到 main 和打开或更新 PR 时执行。检查维护�
 
 ## 后续工作
 
-- 现有 [PR #1](https://github.com/majiayu000/awesome-jev/pull/1) 补充项目，审查后纳入对应目录。
-- 现有 [PR #2](https://github.com/majiayu000/awesome-jev/pull/2) 包含教程、示例和网站改版，需按最终网站范围单独审查，并与本次首页调整协调。
+- [x] [PR #1](https://github.com/majiayu000/awesome-jev/pull/1) 的五个项目已核对原始 README，并纳入双语首页与完整目录；未复现作者的性能结果。
+- [x] [PR #2](https://github.com/majiayu000/awesome-jev/pull/2) 已审查，保留双语入门、工单示例与离线测试、资源推荐表单。旧网站和 README 精选数据生成器由当前完整目录网站替代；独立候选采集工具不纳入本次维护范围。
 - [x] 网站统一名称并从完整目录生成可直接阅读的 HTML，提供搜索和分类筛选。
 - [x] 补充标题、描述、canonical、社交分享元数据与 sitemap。
 - [x] GitHub Pages 已发布，线上搜索、移动端及无 JavaScript 阅读验证通过。

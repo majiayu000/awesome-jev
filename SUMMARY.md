@@ -25,6 +25,9 @@
 
 ## 使用方法
 
+- [双语入门教程](guides/start.md)
+- [可运行的工单示例](examples/README.md)
+
 - [路由与分类](patterns/routing.md)
 - [检查智能体操作](patterns/verification.md)
 - [打分、排序与置信度](patterns/scoring.md)

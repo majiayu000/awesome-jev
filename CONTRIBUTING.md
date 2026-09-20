@@ -41,6 +41,8 @@
 
 网页目录由 `catalog/FULL.md` 生成。修改完整目录后运行 `python3 scripts/build_site.py`，同时提交 `docs/index.html`；用 `python3 scripts/build_site.py --check` 检查是否同步。`docs/data/entries.json` 保留历史收集记录，不再作为网页展示数据。
 
+修改示例后运行 `python3 -m unittest discover -s examples -v`，默认测试不调用真实 API。
+
 ## English summary
 
 Provide a public link and a plain-language description of the use case. Attribute claims to their sources, distinguish commentary from experiments, and state when results have not been reproduced here. Keep both READMEs aligned. Use the category pages for additional resources and the dated updates for news. After editing `catalog/FULL.md`, run `python3 scripts/build_site.py` and commit the generated `docs/index.html` too.

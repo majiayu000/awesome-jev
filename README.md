@@ -12,6 +12,8 @@ A community-maintained list, unaffiliated with TypeSafe. Inclusion is a reading 
 
 ## How to use this list
 
+[Read the bilingual getting-started guide](guides/start.md#english) · [Run the offline ticket-routing example](examples/README.md#english)
+
 1. New to Jev? Start with the documentation and launch article below to understand its decision tasks.
 2. Integrating it? Choose an [SDK](taxonomy/sdks.md), then follow the [routing](patterns/routing.md) or [verification](patterns/verification.md) guide.
 3. Looking for examples? Browse the selections below or the [complete directory](catalog/FULL.md). See [dated updates](updates/README.md) for recent changes.
@@ -55,6 +57,9 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 - [jev-review — NiazMorshed2007](https://github.com/NiazMorshed2007/jev-review) - Local code review through an MCP plugin.
 - [foreman](https://github.com/thruwire/foreman) - Use Jev to monitor a coding agent’s work.
 - [jev-mcp](https://github.com/jkudish/jev-mcp) - Expose Jev checks and search through MCP tools.
+- [jev-belay](https://github.com/valentynkit/jev-belay) - Claude Code Stop hook that checks transcript evidence for unverified completion claims; errors allow the turn to end.
+- [jev-commit](https://github.com/valentynkit/jev-commit) - Git commit-message hook that compares the message with the staged diff and checks for possible credentials.
+- [jev.nvim](https://github.com/valentynkit/jev.nvim) - Neovim plugin that scores functions against a natural-language question and lists results in quickfix.
 
 ## Browser automation
 
@@ -66,6 +71,8 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 - [notra](https://github.com/usenotra/notra) - A project with Jev-based feature-flag routing.
 - [jev-trader](https://github.com/jarrodwatts/jev-trader) - Trading experiment that requests a decision for each Monad block; inclusion does not establish profitability.
 - [typesafe-mario](https://github.com/fhshaik/typesafe-mario) - Game agent using structured emulator state.
+- [jev-skip](https://github.com/valentynkit/jev-skip) - Browser extension that uses Jev to identify potential sponsor segments from YouTube captions.
+- [jev-plays-pokemon-red](https://github.com/valentynkit/jev-plays-pokemon-red) - PyBoy game agent where code handles routing and arithmetic and Jev selects among actions at decision points.
 - [jev-drone](https://github.com/RomanSlack/jev-drone) - Drone simulation using Jev in MuJoCo.
 
 ## Evaluations and open implementations
