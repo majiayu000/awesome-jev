@@ -58,6 +58,8 @@ GitHub Actions 在提交到 main 和打开或更新 PR 时执行。检查维护�
 - [x] 完整目录中的仓库自身条目已更新为 Awesome Jev，清除旧名称与旧定位。
 - [x] 网站已融合工具目录的搜索、分类和卡片／列表浏览方式，并保留原有配色与插画。
 - [x] Spellbook Illustrated Gallery 模板已移除固定图片与整站示例，改为生图、整页设计及六类扩展方向的指导；[PR #205](https://github.com/majiayu000/spellbook/pull/205) 已合并。
-- Google 是否收录需要独立查询，仓库检查通过不代表已收录。
+- [x] 2026-09-20 已通过 Google Search Console 的 HTML 标记验证，资源范围为 `https://majiayu000.github.io/awesome-jev/`；验证标记保留在网站生成器中。
+- [x] 已提交 `sitemap.xml`，Search Console 确认提交成功；首页“请求编入索引”也成功，已进入优先抓取队列。
+- [ ] 等待 Google 后续抓取与收录。2026-09-20 检查时首页尚未收录，sitemap 显示“无法抓取”；线上 sitemap 返回 HTTP 200 且 XML 可解析，尚不能确认 Google 抓取失败的原因。提交成功不代表已收录，后续需在 Search Console 复查处理状态。
 
 参考仓库：[awesome-grok-bot](https://github.com/majiayu000/awesome-grok-bot)。参考其清楚的入口和自动检查，不照搬面向不同数据的复杂校验规则。
