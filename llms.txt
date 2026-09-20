@@ -1,0 +1,15 @@
+# Awesome Jev
+
+> Bilingual curated list of open-source projects, SDKs, tutorials, and evaluations for Jev (TypeSafe System One). Community-maintained; not affiliated with TypeSafe. Inclusion is a reading tip, not a safety or accuracy certification.
+
+Chinese index: https://github.com/majiayu000/awesome-jev/blob/main/README_zh.md
+English index: https://github.com/majiayu000/awesome-jev/blob/main/README.md
+Full catalog: https://github.com/majiayu000/awesome-jev/blob/main/catalog/FULL.md
+Website (searchable catalog): https://majiayu000.github.io/awesome-jev/
+Sources / attribution: https://github.com/majiayu000/awesome-jev/blob/main/SOURCE.md
+Getting started: https://github.com/majiayu000/awesome-jev/blob/main/guides/start.md
+Field notes / gotchas: https://github.com/majiayu000/awesome-jev/blob/main/guides/gotchas.md
+Featured-card review scope: https://github.com/majiayu000/awesome-jev/blob/main/guides/featured-review.md
+Dated updates: https://github.com/majiayu000/awesome-jev/blob/main/updates/README.md
+Official TypeSafe docs: https://docs.typesafe.ai/
+Official jaggedness (jev-1.13): https://docs.typesafe.ai/model-jaggedness/jev-1.13.md

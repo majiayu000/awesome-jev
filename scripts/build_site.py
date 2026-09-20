@@ -96,6 +96,18 @@ def build():
         outputs[f'categories/{key}.html'] = render(category_head + '<main>' + intro + category_catalog + '</main>' + footer, key, '../')
     locations = ''.join(f'  <url><loc>{SITE + (name if name != "index.html" else "")}</loc></url>\n' for name in outputs)
     outputs['sitemap.xml'] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + locations + '</urlset>\n'
+    # Keep robots next to the published sitemap so GitHub Pages serves an explicit allow + sitemap pointer.
+    outputs['robots.txt'] = (
+        'User-agent: *\n'
+        'Allow: /\n'
+        '\n'
+        'User-agent: Googlebot\n'
+        'Allow: /\n'
+        '\n'
+        f'Sitemap: {SITE}sitemap.xml\n'
+    )
+    # Short machine-readable map for LLM crawlers (mirrors repo-root llms.txt).
+    outputs['llms.txt'] = (ROOT / 'llms.txt').read_text()
     return outputs
 
 TEMPLATE = '''<!doctype html>
@@ -121,7 +133,7 @@ TEMPLATE = '''<!doctype html>
 <figure class="hero-art"><img src="assets/decision-paths.webp" alt="象牙色分岔轨道与橙色路径组成的决策装置概念插画" width="1672" height="941" fetchpriority="high"><figcaption><span>STUDY 01 / POSSIBLE PATHS</span><span>每一次选择，都通向新的可能 ↗</span></figcaption><div class="art-label" aria-hidden="true"><span>DECISION<br>IN MOTION</span><b>01—</b></div></figure>
 </section>
 <section class="topic-strip shell" aria-label="按用途探索"><a href="categories/sdks.html"><span>01 / INTEGRATE</span><strong>接入 Jev <i>↗</i></strong><p>SDK、客户端与集成</p></a><a href="categories/agents.html"><span>02 / AUTOMATE</span><strong>构建智能体 <i>↗</i></strong><p>路由、代码审查与工具调用</p></a><a href="categories/browser.html"><span>03 / INTERACT</span><strong>操作浏览器 <i>↗</i></strong><p>浏览器与电脑操作项目</p></a><a href="categories/research.html"><span>04 / EVALUATE</span><strong>理解能力边界 <i>↗</i></strong><p>评测、对比与开源实现</p></a></section>
-<section id="featured" class="featured shell" aria-labelledby="featured-title"><div class="section-heading"><div><p class="eyebrow">A FEW PLACES TO BEGIN</p><h2 id="featured-title">先看这几个。</h2></div><a class="text-link" href="https://github.com/majiayu000/awesome-jev/blob/main/README_zh.md">查看全部入门精选 ↗</a></div>
+<section id="featured" class="featured shell" aria-labelledby="featured-title"><div class="section-heading"><div><p class="eyebrow">A FEW PLACES TO BEGIN</p><h2 id="featured-title">先看这几个。</h2><p class="featured-note">阅读入口，不是官方认证；链接指向原项目与 <a href="https://github.com/majiayu000/awesome-jev/blob/main/SOURCE.md">SOURCE.md</a>，本站未替你验证生产可用性。</p></div><a class="text-link" href="https://github.com/majiayu000/awesome-jev/blob/main/README_zh.md">查看全部入门精选 ↗</a></div>
 <div class="featured-grid">
 <article class="feature-card sdk-card"><div class="feature-visual" aria-hidden="true"><span class="code-tag">&lt;/&gt;</span><span class="visual-caption">THE BUILDING BLOCKS</span><span class="visual-index">01</span></div><div class="feature-body"><p class="eyebrow">OFFICIAL / SDK</p><h3>从官方客户端开始</h3><p>使用 JavaScript、TypeScript 或 Python，把 Jev 接入自己的程序。</p><div class="feature-links"><a href="https://github.com/typesafe-ai/typesafe-sdk-js">JavaScript ↗</a><a href="https://github.com/typesafe-ai/typesafe-sdk-python">Python ↗</a></div></div></article>
 <article class="feature-card browser-card"><div class="feature-visual" aria-hidden="true"><span class="browser-glyph"><i></i><i></i><i></i><b>↗</b></span><span class="visual-caption">FROM CHOICE TO ACTION</span><span class="visual-index">02</span></div><div class="feature-body"><p class="eyebrow">BROWSER / AUTOMATION</p><h3>browser-use / jev-ultrafast</h3><p>由 Jev 选择浏览器操作与 DOM 元素，语言模型负责生成输入文字。</p><div class="feature-links"><a href="https://github.com/browser-use/jev-ultrafast">探索项目 ↗</a></div></div></article>

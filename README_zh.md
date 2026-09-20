@@ -8,6 +8,8 @@ Jev（TypeSafe System One）的开源项目、SDK、教程和评测精选，帮�
 
 本清单由社区维护，与 TypeSafe 无隶属关系。收录表示值得参考，不代表已通过安全、准确率或生产可用性验证。
 
+**用途 / 来源 / 未验证：** 首页精选与分类条目是阅读入口。说明整理自公开 README 与文档；原始链接与 [SOURCE.md](SOURCE.md) 为准。收录**不是**对本仓库声称的独立实验室验证，也不等于生产可用性背书。
+
 **[完整资源目录](catalog/FULL.md)** · 按类别浏览项目、工具、教程和文章。
 
 ## 从这里开始
@@ -113,6 +115,7 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 - 小样本速度/成本文章不能外推成通用准确率（例：[Every 实验](https://every.to/also-true-for-humans/mini-vibe-check-typesafe-s-jev-judged-everything-i-ve-written-in-0-7-seconds)）。
 - 开源复刻不是官方权重；负结果（如 [phishing-bench](https://github.com/anisselbd/jev-phishing-bench)）同样收录。
 - 首页精选卡片的核对范围见 [guides/featured-review.md](guides/featured-review.md)：安装通过 ≠ 生产验收。
+- 计数与日期比较应放在代码；Noul 与 Choice 没有恒等关系 — 详见 [guides/gotchas.md](guides/gotchas.md)（§11–16）。
 
 ## 更多资料
 

@@ -8,6 +8,8 @@ Selected open-source projects, SDKs, tutorials, and evaluations for Jev, TypeSaf
 
 A community-maintained list, unaffiliated with TypeSafe. Inclusion is a reading recommendation, not a certification of safety, accuracy, or production readiness.
 
+**Purpose / source / not verified:** Featured cards and category picks are reading entry points. Descriptions summarize public READMEs and docs; original links and [SOURCE.md](SOURCE.md) stay authoritative. Listing here is **not** an independent lab verification of claims or production readiness.
+
 **[Browse all resources](catalog/FULL.md)** — Projects, tools, tutorials, and articles organized by category.
 
 ## How to use this list
@@ -113,6 +115,7 @@ Sharpest public pitfalls; full bilingual list in [guides/gotchas.md](guides/gotc
 - Small-sample speed/cost writeups are not universal accuracy claims ([Every](https://every.to/also-true-for-humans/mini-vibe-check-typesafe-s-jev-judged-everything-i-ve-written-in-0-7-seconds)).
 - Open replicas are not official weights; negative results (e.g. [phishing-bench](https://github.com/anisselbd/jev-phishing-bench)) stay listed.
 - Featured-card checks are scoped: see [guides/featured-review.md](guides/featured-review.md).
+- Math/counting and date compare stay in code; Noul≠Choice identities — denser notes in [guides/gotchas.md](guides/gotchas.md) (§11–16).
 
 ## Further reading
 

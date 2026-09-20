@@ -74,3 +74,10 @@ GitHub Actions 在提交到 main 和打开或更新 PR 时执行。检查维护�
 - [x] 新增 [guides/gotchas.md](guides/gotchas.md) 与首页「踩坑」入口。
 - [x] 新增 [updates/2026-09-20.md](updates/2026-09-20.md) 记录清单/站点自身进展与精选核对。
 
+- [x] 增厚 [guides/gotchas.md](guides/gotchas.md) §11–16（官方 jaggedness / models / 网关可核链接）。
+- [x] 新增仓库根与站点 `llms.txt`（对齐 awesome-grok-bot 的短索引风格）。
+- [x] `scripts/build_site.py` 生成 `robots.txt`（显式允许 Googlebot + Sitemap）并写入精选区「用途/来源/未验证」说明。
+- [x] README / README_zh 补充 Purpose/source/not verified 一句话；未恢复 trust map / Must-30 / trust tags。
+- [ ] 未新写 updates 周报：2026-09-18 以来公开变化多为新仓库噪音，不足以单独成篇。
+- [ ] 等待 Google 后续抓取与收录（代码侧无法单独完成）。
+
