@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://majiayu000.github.io/awesome-jev/</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/official.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/sdks.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/integrations.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/agents.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/browser.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/apps.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/games.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/demos.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/research.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/lists.html</loc></url>
+  <url><loc>https://majiayu000.github.io/awesome-jev/categories/articles.html</loc></url>
 </urlset>

@@ -41,8 +41,8 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 
 ## SDK 与接入
 
-- [typesafe-sdk-js](https://github.com/typesafe-ai/typesafe-sdk-js) - 官方 JavaScript 与 TypeScript 客户端。
-- [typesafe-sdk-python](https://github.com/typesafe-ai/typesafe-sdk-python) - 官方 Python 客户端。
+- [typesafe-sdk-js](https://github.com/typesafe-ai/typesafe-sdk-js) - 官方 JavaScript 与 TypeScript 客户端，用于调用 Jev API；需要 Node.js 20+ 和 TypeSafe 密钥。
+- [typesafe-sdk-python](https://github.com/typesafe-ai/typesafe-sdk-python) - 官方 Python 客户端，用于调用 Jev API；需要 Python 3.10+ 和 TypeSafe 密钥。
 - [system-one-adapter-python](https://github.com/typesafe-ai/system-one-adapter-python) - 通过相同的决策接口比较 Jev 与语言模型。
 - [TypeSafe skills](https://github.com/typesafe-ai/skills) - 帮助编程智能体使用 Jev 的官方说明。
 - [Vercel AI Gateway](https://vercel.com/ai-gateway/models/jev) - 网关模型页面，当前接入方式与价格以服务商说明为准。
@@ -52,7 +52,7 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 
 ## 智能体工具
 
-- [jev-router](https://github.com/gargpratyush/jev-router) - 为 Claude Code 任务选择模型。
+- [jev-router](https://github.com/gargpratyush/jev-router) - 为 Claude Code 和 Codex 的任务选择模型；需要 Node.js 20.12+、Jev 密钥和已登录的对应 CLI。
 - [jev-review — devagrawal09](https://github.com/devagrawal09/jev-review) - 带看板的代码审查流程。
 - [jev-review — NiazMorshed2007](https://github.com/NiazMorshed2007/jev-review) - 通过 MCP 插件进行本地代码审查。
 - [foreman](https://github.com/thruwire/foreman) - 使用 Jev 检查编程智能体的工作。
@@ -63,7 +63,7 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 
 ## 浏览器自动化
 
-- [jev-ultrafast](https://github.com/browser-use/jev-ultrafast) - 由 Jev 选择浏览器操作与 DOM 元素，由语言模型生成要输入的文字。
+- [jev-ultrafast](https://github.com/browser-use/jev-ultrafast) - 浏览器自动化工具，由 Jev 选择操作与 DOM 元素，由语言模型生成输入文字；需要 Python 3.12+、Chrome、Jev 与文字模型服务。
 - [typesafe-computer-use](https://github.com/awlevin/typesafe-computer-use) - 利用 OCR 识别的文字帮助 Jev 选择电脑操作。
 
 ## 应用与游戏
