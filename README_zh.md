@@ -55,6 +55,9 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 - [jev-review — NiazMorshed2007](https://github.com/NiazMorshed2007/jev-review) - 通过 MCP 插件进行本地代码审查。
 - [foreman](https://github.com/thruwire/foreman) - 使用 Jev 检查编程智能体的工作。
 - [jev-mcp](https://github.com/jkudish/jev-mcp) - 通过 MCP 工具提供 Jev 检查与查找功能。
+- [jev-belay](https://github.com/valentynkit/jev-belay) - Claude Code 的 Stop 钩子，在标记「完成」前检查会话记录中的证据，仅在文件有改动且尚无通过的检查时才调用一次 Jev。
+- [jev-commit](https://github.com/valentynkit/jev-commit) - 预提交钩子，用一次 Jev 调用判断提交信息是否匹配暂存的改动，检测到凭据时会阻止提交。
+- [jev.nvim](https://github.com/valentynkit/jev.nvim) - Neovim 插件，用 Treesitter 将缓冲区拆分为函数，针对一个问题用 Jev 给每个函数打分，并按概率在 quickfix 中列出结果。
 
 ## 浏览器自动化
 
@@ -66,6 +69,8 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 - [notra](https://github.com/usenotra/notra) - 包含基于 Jev 的功能开关路由。
 - [jev-trader](https://github.com/jarrodwatts/jev-trader) - 在每个 Monad 区块请求一次判断的交易实验，收录不代表其能够盈利。
 - [typesafe-mario](https://github.com/fhshaik/typesafe-mario) - 使用模拟器结构化状态的游戏智能体。
+- [jev-skip](https://github.com/valentynkit/jev-skip) - 浏览器扩展，根据字幕轨道为 YouTube 的赞助片段打分，并在片头结束前标注到进度条上。
+- [jev-plays-pokemon-red](https://github.com/valentynkit/jev-plays-pokemon-red) - 在 PyBoy 上运行的宝可梦红版，代码负责路线与计算，Jev 只在分支处做选择，每场战斗的战败预测都会与 RAM 状态对照评分。
 - [jev-drone](https://github.com/RomanSlack/jev-drone) - 在 MuJoCo 中使用 Jev 的无人机模拟实验。
 
 ## 评测与开源实现

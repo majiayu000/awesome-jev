@@ -55,6 +55,9 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 - [jev-review — NiazMorshed2007](https://github.com/NiazMorshed2007/jev-review) - Local code review through an MCP plugin.
 - [foreman](https://github.com/thruwire/foreman) - Use Jev to monitor a coding agent’s work.
 - [jev-mcp](https://github.com/jkudish/jev-mcp) - Expose Jev checks and search through MCP tools.
+- [jev-belay](https://github.com/valentynkit/jev-belay) - Claude Code Stop hook that checks transcript evidence before allowing a "done", calling Jev only when files changed with no passing check since.
+- [jev-commit](https://github.com/valentynkit/jev-commit) - Pre-commit hook where one Jev call checks whether the commit message matches the staged diff, and blocks the commit on a detected credential.
+- [jev.nvim](https://github.com/valentynkit/jev.nvim) - Neovim plugin that splits a buffer into functions with Treesitter, scores each against a plain-language question with Jev, and lists answers in quickfix by probability.
 
 ## Browser automation
 
@@ -66,6 +69,8 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 - [notra](https://github.com/usenotra/notra) - A project with Jev-based feature-flag routing.
 - [jev-trader](https://github.com/jarrodwatts/jev-trader) - Trading experiment that requests a decision for each Monad block; inclusion does not establish profitability.
 - [typesafe-mario](https://github.com/fhshaik/typesafe-mario) - Game agent using structured emulator state.
+- [jev-skip](https://github.com/valentynkit/jev-skip) - Browser extension that scores YouTube sponsor segments from the caption track and marks them on the seek bar before the intro ends.
+- [jev-plays-pokemon-red](https://github.com/valentynkit/jev-plays-pokemon-red) - Pokemon Red on PyBoy where code handles routing and arithmetic and Jev only picks at branches, with each battle's faint prediction scored against RAM state.
 - [jev-drone](https://github.com/RomanSlack/jev-drone) - Drone simulation using Jev in MuJoCo.
 
 ## Evaluations and open implementations
