@@ -63,6 +63,7 @@ Jev returns choices, scores, and condition judgments for software to act on. A v
 - [jev-belay](https://github.com/valentynkit/jev-belay) - Claude Code Stop hook that checks transcript evidence for unverified completion claims; errors allow the turn to end.
 - [jev-commit](https://github.com/valentynkit/jev-commit) - Git commit-message hook that compares the message with the staged diff and checks for possible credentials.
 - [jev.nvim](https://github.com/valentynkit/jev.nvim) - Neovim plugin that scores functions against a natural-language question and lists results in quickfix.
+- [Jevonian](https://github.com/xinyao27/jevonian) - Local OpenAI/Anthropic/Responses-compatible proxy where one Jev call answers both the model route and the thinking level for `jevonian/auto`, after code has filtered candidates by protocol, context window, and effort floor; a pinned model ID or explicit `jevonian/<route>` skips Jev entirely. Requires Node.js 22+ and a Jev or OpenRouter channel for the brain.
 
 ## Browser automation
 
