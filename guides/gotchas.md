@@ -95,6 +95,10 @@
     [`pi-jev-context`](https://github.com/Nyarlathoteppppp/pi-jev-context) 在真实会话回放中发现：按「只保留模型选中的块」裁剪时，约 17% 的裁剪藏起了之后被 agent/用户用到的事实；Jev 也不擅长保护「现在无关、以后要用」的信息。更稳的默认是：只藏**自信无用**的块，并对失败行/`file:line`、请求关键词等做代码侧硬保留，并保留可原样召回路径。
     来源：[pi-jev-context FINDINGS F2 / F11](https://github.com/Nyarlathoteppppp/pi-jev-context/blob/main/docs/FINDINGS.md)；项目 README。
 
+22. **多标签：先竞争再核对；低分不等于安全**
+    独立对每个候选发 `noul` 再合并时，分数常挤在 ~0.5，排序近似噪声。更稳的形状是：先用分块 `choice` 让选项互相竞争，再用一轮 `noul` 做集合核对（艾特玖 harness 评测里多技能 R@1 从约 9% 提到约 81%——作者数字，未复现）。另：注入场景里高分桶往往脏，但 **0–0.1 低分桶仍可含恶意样本**；低分不能当放行依据，需保留人工/代码复核带。
+    来源：[DEV · Benchmarking Jev…](https://dev.to/aitejiu/benchmarking-jev-what-a-decision-model-can-and-cant-do-in-an-agent-harness-20po)；[`Aitejiu/jev-harness-lab`](https://github.com/Aitejiu/jev-harness-lab)。
+
 ## English
 
 ### Judgment and wording
@@ -147,4 +151,6 @@
 20. **LiteLLM / proxies are not chat completions** — TypeSafe on LiteLLM is a pass-through to `POST …/typesafe/v1/systemone` (and other `/typesafe/` paths), not `/chat/completions`. Spend is logged under the versioned model TypeSafe reports (e.g. `typesafe/jev-1.13.0`) even when you request `jev-latest`. Sources: [LiteLLM pass-through](https://docs.litellm.ai/docs/pass_through/typesafe); [blog 2026-09-20](https://docs.litellm.ai/blog/typesafe_jev).
 
 21. **Compaction polarity: “keep only what Jev selects” can hide later-needed facts** — [`pi-jev-context`](https://github.com/Nyarlathoteppppp/pi-jev-context) reports ~17% of such trims on real-session replays hid facts used later; Jev also fails at protecting “irrelevant now, needed later” items. Prefer dropping only confidently useless blocks, with code-side hard keeps (failure lines, request terms, etc.) and lossless recall. Source: [FINDINGS F2 / F11](https://github.com/Nyarlathoteppppp/pi-jev-context/blob/main/docs/FINDINGS.md).
+
+22. **Multi-label: compete, then verify; low scores are not a safety pass** — Per-candidate `noul` scores without competition often cluster near 0.5. Prefer chunked `choice` competition, then a verify pass of `noul`s. High-score buckets can be dirty in injection tasks, but the lowest bin can still contain attacks—keep a review band. Source: [DEV benchmarking post](https://dev.to/aitejiu/benchmarking-jev-what-a-decision-model-can-and-cant-do-in-an-agent-harness-20po) / [`jev-harness-lab`](https://github.com/Aitejiu/jev-harness-lab) (author numbers; not reproduced here).
 
