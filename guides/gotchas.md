@@ -81,6 +81,11 @@
     经 OpenRouter 调 Jev 时，使用 Decisions 端点（如 `/api/alpha/decisions`），不是普通 chat completions；模型 id 常需 `~typesafe/jev-latest` 这类波浪号前缀。写错路径会被当成聊天模型拒绝。
     来源：[nexibeo/jev-cookbook](https://github.com/nexibeo/jev-cookbook) 快速入门说明（作者实测笔记，非官方文档）。
 
+
+19. **语义 SQL / 全表扫描会按行计费**
+    [`jevql`](https://github.com/kylemclaren/jevql) 对 SQL 过滤后的**每一行**（或你列出的列）向 TypeSafe 发内容；服务端看不到 `jev()`。务必先写便宜、可索引的谓词，并用 `--explain` 看行数与费用；敏感列用列清单/`--columns` 收窄。
+    来源：[kylemclaren/jevql README — Security and honesty](https://github.com/kylemclaren/jevql)。
+
 ## English
 
 ### Judgment and wording
@@ -126,5 +131,8 @@
 17. **JSON Schema bridges are lossy** — [`jev_jsonschema`](https://github.com/Kiln-AI/jev_jsonschema) maps only a subset of JSON Schema (booleans, enums, narrow integer ranges). Free-form strings, arrays/objects, `anyOf`/`$ref`, and wide integer ranges are rejected before any API call. Source: project README.
 
 18. **OpenRouter Decisions path and model id** — Jev on OpenRouter uses the Decisions endpoint (e.g. `/api/alpha/decisions`), not chat completions; model ids may need a `~` prefix (`~typesafe/jev-latest`). Source: [nexibeo/jev-cookbook](https://github.com/nexibeo/jev-cookbook) notes (third-party).
+
+
+19. **Semantic SQL still bills per surviving row** — [`jevql`](https://github.com/kylemclaren/jevql) judges every row that passes ordinary SQL filters and sends those column values to TypeSafe. Put cheap predicates in SQL first; use `--explain` and column lists. Source: project README (Security and honesty).
 
 
