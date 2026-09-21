@@ -63,6 +63,7 @@ Jev 用于选择选项、打分和判断条件，结果可供程序继续处理�
 - [jev-belay](https://github.com/valentynkit/jev-belay) - Claude Code 的 Stop 钩子，结合会话证据检查未经验证的完成声明；发生错误时放行。
 - [jev-commit](https://github.com/valentynkit/jev-commit) - Git 提交信息钩子，检查提交说明与暂存改动是否一致，并检查可能的凭据。
 - [jev.nvim](https://github.com/valentynkit/jev.nvim) - Neovim 插件，根据自然语言问题对函数评分，并在 quickfix 中展示结果。
+- [Jevonian](https://github.com/xinyao27/jevonian) - 本机跑的 OpenAI / Anthropic / Responses 兼容代理：一次 Jev 请求同时决定 `jevonian/auto` 走哪个模型、用多深的思考，候选先由代码按协议、上下文窗口和思考深度下限筛过；指定具体模型或显式 `jevonian/<route>` 时完全不调用 Jev。需要 Node.js 22+，以及一个 Jev 或 OpenRouter 通道作为大脑。
 
 ## 浏览器自动化
 

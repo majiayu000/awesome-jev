@@ -248,6 +248,7 @@
 | JevLint | Configurable semantic linting powered by Jev, with file-level NOUL judgments and a magic-strings plugin. | [仓库](https://github.com/huntedman/JevLint) |
 | typesafe-skill-router | TypeSafe (Jev) skill routing for Hermes Agent: names the one skill worth loading, before the model call. Opt-in, stdlib only, ~$0.001 per routed turn. | [仓库](https://github.com/DECRUX9812/typesafe-skill-router) |
 | jev-agent-skill-router | Typed, confidence-aware agent skill routing with TypeSafe Jev. | [仓库](https://github.com/GodsBoy/jev-agent-skill-router) |
+| Jevonian | Local OpenAI/Anthropic/Responses-compatible proxy for coding agents where one Jev call answers both the model route and the thinking level for `jevonian/auto`, after code has filtered candidates by protocol, context window, effort floor, and spent quota windows; a pinned model ID or explicit `jevonian/<route>` skips Jev entirely, and every turn is recorded with the serving model, the reason, real token usage, cache reads, and an estimated cost. | [仓库](https://github.com/xinyao27/jevonian) |
 | pi-jev (TheoOliveira) | Semantic tool routing and typed System One decisions for the Pi coding agent using TypeSafe Jev | [仓库](https://github.com/TheoOliveira/pi-jev) |
 | typesafe-cli (geilt) | CLI and agent skill for TypeSafe System One (Jev): typed Choice, Score, and Noul judgments. | [仓库](https://github.com/geilt/typesafe-cli) |
 | diffjury | DiffJury — TypeSafe Jev PR risk router + code review coach | [仓库](https://github.com/raihankhan-rk/diffjury) |
