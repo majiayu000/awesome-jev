@@ -86,6 +86,15 @@
     [`jevql`](https://github.com/kylemclaren/jevql) 对 SQL 过滤后的**每一行**（或你列出的列）向 TypeSafe 发内容；服务端看不到 `jev()`。务必先写便宜、可索引的谓词，并用 `--explain` 看行数与费用；敏感列用列清单/`--columns` 收窄。
     来源：[kylemclaren/jevql README — Security and honesty](https://github.com/kylemclaren/jevql)。
 
+
+20. **LiteLLM / 代理不是 chat completions**
+    LiteLLM 的 TypeSafe 通道是 pass-through：`POST …/typesafe/v1/systemone`（以及 `/typesafe/` 下其它路径），**不要**当成 `/chat/completions`。花费记在 TypeSafe 回报的版本化模型名（如 `typesafe/jev-1.13.0`），即使请求别名 `jev-latest`。
+    来源：[LiteLLM TypeSafe pass-through](https://docs.litellm.ai/docs/pass_through/typesafe)；[TypeSafe Jev on LiteLLM（2026-09-20）](https://docs.litellm.ai/blog/typesafe_jev)。
+
+21. **上下文压缩：「只留 Jev 选中」会藏后续要用的事实**
+    [`pi-jev-context`](https://github.com/Nyarlathoteppppp/pi-jev-context) 在真实会话回放中发现：按「只保留模型选中的块」裁剪时，约 17% 的裁剪藏起了之后被 agent/用户用到的事实；Jev 也不擅长保护「现在无关、以后要用」的信息。更稳的默认是：只藏**自信无用**的块，并对失败行/`file:line`、请求关键词等做代码侧硬保留，并保留可原样召回路径。
+    来源：[pi-jev-context FINDINGS F2 / F11](https://github.com/Nyarlathoteppppp/pi-jev-context/blob/main/docs/FINDINGS.md)；项目 README。
+
 ## English
 
 ### Judgment and wording
@@ -135,4 +144,7 @@
 
 19. **Semantic SQL still bills per surviving row** — [`jevql`](https://github.com/kylemclaren/jevql) judges every row that passes ordinary SQL filters and sends those column values to TypeSafe. Put cheap predicates in SQL first; use `--explain` and column lists. Source: project README (Security and honesty).
 
+20. **LiteLLM / proxies are not chat completions** — TypeSafe on LiteLLM is a pass-through to `POST …/typesafe/v1/systemone` (and other `/typesafe/` paths), not `/chat/completions`. Spend is logged under the versioned model TypeSafe reports (e.g. `typesafe/jev-1.13.0`) even when you request `jev-latest`. Sources: [LiteLLM pass-through](https://docs.litellm.ai/docs/pass_through/typesafe); [blog 2026-09-20](https://docs.litellm.ai/blog/typesafe_jev).
+
+21. **Compaction polarity: “keep only what Jev selects” can hide later-needed facts** — [`pi-jev-context`](https://github.com/Nyarlathoteppppp/pi-jev-context) reports ~17% of such trims on real-session replays hid facts used later; Jev also fails at protecting “irrelevant now, needed later” items. Prefer dropping only confidently useless blocks, with code-side hard keeps (failure lines, request terms, etc.) and lossless recall. Source: [FINDINGS F2 / F11](https://github.com/Nyarlathoteppppp/pi-jev-context/blob/main/docs/FINDINGS.md).
 
