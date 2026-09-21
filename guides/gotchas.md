@@ -72,6 +72,15 @@
     Models 页写明速率限制会动态调整；`jev-latest` / `jev-preview` 会随发版漂移，阈值应钉版本 ID。各网关的模型名、计费与接入条件不同，需分别核对。
     来源：[Models](https://docs.typesafe.ai/models.md)；[Vercel AI Gateway changelog](https://vercel.com/changelog/typesafe-ai-jev-now-available-on-ai-gateway)；[Cloudflare Workers AI — typesafe/jev](https://developers.cloudflare.com/ai/models/typesafe/jev/)；[OpenRouter 上线说明](https://x.com/OpenRouter/status/2100744709589316009)。
 
+
+17. **JSON Schema 桥 ≠ 任意 Schema**
+    [`jev_jsonschema`](https://github.com/Kiln-AI/jev_jsonschema) 只映射 boolean→Noul、enum→Choice、窄整数区间→Score；自由 `string`、`array`/`object`、`anyOf`/`$ref`、超过 10 档的整数区间会在请求前报错。把「任意 structured output schema」原样丢给该库会失败。
+    来源：[Kiln-AI/jev_jsonschema README — What Isn't Supported](https://github.com/Kiln-AI/jev_jsonschema)。
+
+18. **OpenRouter 上的路径与模型名**
+    经 OpenRouter 调 Jev 时，使用 Decisions 端点（如 `/api/alpha/decisions`），不是普通 chat completions；模型 id 常需 `~typesafe/jev-latest` 这类波浪号前缀。写错路径会被当成聊天模型拒绝。
+    来源：[nexibeo/jev-cookbook](https://github.com/nexibeo/jev-cookbook) 快速入门说明（作者实测笔记，非官方文档）。
+
 ## English
 
 ### Judgment and wording
@@ -113,3 +122,9 @@
 15. **Jev is not for text generation** — Chaining choices to “spell” is slow and weak; extract candidates elsewhere, let Jev choose. Source: [Generation](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
 
 16. **Rate limits and aliases move; gateway IDs differ** — Limits adjust dynamically; pin versioned model IDs for tuned thresholds. Re-check each gateway’s model id and terms. Sources: [Models](https://docs.typesafe.ai/models.md); [Vercel AI Gateway changelog](https://vercel.com/changelog/typesafe-ai-jev-now-available-on-ai-gateway); [Cloudflare typesafe/jev](https://developers.cloudflare.com/ai/models/typesafe/jev/); [OpenRouter launch note](https://x.com/OpenRouter/status/2100744709589316009).
+
+17. **JSON Schema bridges are lossy** — [`jev_jsonschema`](https://github.com/Kiln-AI/jev_jsonschema) maps only a subset of JSON Schema (booleans, enums, narrow integer ranges). Free-form strings, arrays/objects, `anyOf`/`$ref`, and wide integer ranges are rejected before any API call. Source: project README.
+
+18. **OpenRouter Decisions path and model id** — Jev on OpenRouter uses the Decisions endpoint (e.g. `/api/alpha/decisions`), not chat completions; model ids may need a `~` prefix (`~typesafe/jev-latest`). Source: [nexibeo/jev-cookbook](https://github.com/nexibeo/jev-cookbook) notes (third-party).
+
+
