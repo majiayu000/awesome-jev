@@ -99,6 +99,10 @@
     独立对每个候选发 `noul` 再合并时，分数常挤在 ~0.5，排序近似噪声。更稳的形状是：先用分块 `choice` 让选项互相竞争，再用一轮 `noul` 做集合核对（艾特玖 harness 评测里多技能 R@1 从约 9% 提到约 81%——作者数字，未复现）。另：注入场景里高分桶往往脏，但 **0–0.1 低分桶仍可含恶意样本**；低分不能当放行依据，需保留人工/代码复核带。
     来源：[DEV · Benchmarking Jev…](https://dev.to/aitejiu/benchmarking-jev-what-a-decision-model-can-and-cant-do-in-an-agent-harness-20po)；[`Aitejiu/jev-harness-lab`](https://github.com/Aitejiu/jev-harness-lab)。
 
+23. **把握是「选项间偏好」，不是 P(正确)**
+    置信度描述的是：在你给出的那组答案里，模型有多偏向其中一个。去掉正确答案后，它仍可能对错误描述给出很高把握。业务规则若用 Score 小数阈值（如 ≥2.00），阈值附近的微小波动（1.99 vs 2.00）会把同一语义切成完全不同的放行结果——阈值要按自有标注校准，并留复核带。
+    来源：[全天候科技 / 华尔街见闻财报实测](https://wallstreetcn.com/articles/3782218)（[网易镜像](https://www.163.com/dy/article/L7CCIPML0511I947.html)）；[硅星人 Pro 客服实测](https://www.woshipm.com/evaluating/6467191.html)；官方 [Confidence](https://docs.typesafe.ai/confidence)。
+
 ## English
 
 ### Judgment and wording
@@ -154,3 +158,5 @@
 
 22. **Multi-label: compete, then verify; low scores are not a safety pass** — Per-candidate `noul` scores without competition often cluster near 0.5. Prefer chunked `choice` competition, then a verify pass of `noul`s. High-score buckets can be dirty in injection tasks, but the lowest bin can still contain attacks—keep a review band. Source: [DEV benchmarking post](https://dev.to/aitejiu/benchmarking-jev-what-a-decision-model-can-and-cant-do-in-an-agent-harness-20po) / [`jev-harness-lab`](https://github.com/Aitejiu/jev-harness-lab) (author numbers; not reproduced here).
 
+
+23. **Confidence is relative preference among options, not P(correct)** — It measures how peaked the distribution is over the options you offered. Remove the right answer and the model can still assign high confidence to a wrong one. Score thresholds near a cutoff (e.g. 1.99 vs 2.00) can flip business rules on noise; calibrate on your labels and keep a review band. Sources: [Wallstreetcn / All-Weather Tech earnings eval](https://wallstreetcn.com/articles/3782218) ([163 mirror](https://www.163.com/dy/article/L7CCIPML0511I947.html)); [Woshipm / Silicon Star Pro CS eval](https://www.woshipm.com/evaluating/6467191.html); official [Confidence](https://docs.typesafe.ai/confidence).
