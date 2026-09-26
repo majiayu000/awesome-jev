@@ -703,7 +703,7 @@
 
 | 项目或资源 | 说明 | 链接 |
 | --- | --- | --- |
-| Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem | The first data-driven survey and analysis of Jev's application ecosystem, covering 2,170 public GitHub projects, early growth, application domains, and decision-use patterns. | [论文](https://arxiv.org/abs/2609.30216) |
+| Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem | Authors report an analysis of 2,170 public GitHub Jev projects collected through 2026-09-22, examining early growth, application domains, and decision-use patterns; the findings have not been independently reproduced here. | [论文](https://arxiv.org/abs/2609.30216) |
 | openjev (TheoLeeCJ) | Can we run something like Jev on a 3090 at home? | [仓库](https://github.com/TheoLeeCJ/openjev) · [网站](https://openjev.com) · [文章](https://x.com/hhkkmon/status/2100443314957038010) |
 | jevlike | Train a small model that chooses among a changing list of text options, one probability per option in a single pass. Includes Doom, chess, and Wikispeedia demos. | [仓库](https://github.com/vinnylarouge/jevlike) · [文章](https://x.com/hhkkmon/status/2100443314957038010) |
 | jev-eval-agent | Personal-assistant agent built on Vercel's eve with 100 mocked tools, measuring how many steps it takes when Jev picks the tool versus the LLM. | [仓库](https://github.com/vinilana/jev-eval-agent) |
