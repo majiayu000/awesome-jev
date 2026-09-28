@@ -103,6 +103,15 @@
     置信度描述的是：在你给出的那组答案里，模型有多偏向其中一个。去掉正确答案后，它仍可能对错误描述给出很高把握。业务规则若用 Score 小数阈值（如 ≥2.00），阈值附近的微小波动（1.99 vs 2.00）会把同一语义切成完全不同的放行结果——阈值要按自有标注校准，并留复核带。
     来源：[全天候科技 / 华尔街见闻财报实测](https://wallstreetcn.com/articles/3782218)（[网易镜像](https://www.163.com/dy/article/L7CCIPML0511I947.html)）；[硅星人 Pro 客服实测](https://www.woshipm.com/evaluating/6467191.html)；官方 [Confidence](https://docs.typesafe.ai/confidence)。
 
+
+24. **Judge 工作负载有边界；cascade 阈值要本地验证**
+    普通偏好与有证据事实性上，Jev-as-judge 可接近强 LLM judge 且便宜很多；需核对推导（如 JudgeBench）或抵抗「写得更华丽的错误答案」时差距明显拉大。无参考散文近随机。用置信度做「自信接受、不确定升级」时，阈值要在自有选型集上拟合并在 hold-out 复核——论文显示并非对每个 fallback 都迁移。
+    来源：[arXiv:2609.26550](https://arxiv.org/abs/2609.26550)；[MLflow Jev judge](https://mlflow.org/blog/jev-llm-judge/)；[OpenRouter Jev-Verified Cascade](https://openrouter.ai/docs/cookbook/evaluate-and-optimize/jev-verified-cascade)。
+
+25. **Decision Model 前先有候选空间**
+    规则能写死交给代码；规则模糊但候选明确才适合 Jev；连候选都要发现/创造时仍需生成模型。高频控制环里几百毫秒未必够「反射层」；好看的 demo 往往先由 harness 把开放世界压成 state + 合法动作。
+    来源：[BMPI · Jev 的边界](https://www.bmpi.dev/dev/jev-boundary/)；[V2EX](https://www.v2ex.com/t/1243613)。
+
 ## English
 
 ### Judgment and wording
@@ -160,3 +169,11 @@
 
 
 23. **Confidence is relative preference among options, not P(correct)** — It measures how peaked the distribution is over the options you offered. Remove the right answer and the model can still assign high confidence to a wrong one. Score thresholds near a cutoff (e.g. 1.99 vs 2.00) can flip business rules on noise; calibrate on your labels and keep a review band. Sources: [Wallstreetcn / All-Weather Tech earnings eval](https://wallstreetcn.com/articles/3782218) ([163 mirror](https://www.163.com/dy/article/L7CCIPML0511I947.html)); [Woshipm / Silicon Star Pro CS eval](https://www.woshipm.com/evaluating/6467191.html); official [Confidence](https://docs.typesafe.ai/confidence).
+
+
+24. **Judge workloads have an envelope; cascade thresholds need local validation** — Competitive on ordinary preference and evidence-grounded factuality at low cost; larger gaps when checking a derivation (e.g. JudgeBench) or resisting elaborately written wrong answers. Reference-free prose is near chance for every tested judge. Confidence cascades that accept sure verdicts and escalate the rest need thresholds fit and re-checked locally—they do not transfer for every fallback.
+    Sources: [arXiv:2609.26550](https://arxiv.org/abs/2609.26550); [MLflow](https://mlflow.org/blog/jev-llm-judge/); [OpenRouter cascade cookbook](https://openrouter.ai/docs/cookbook/evaluate-and-optimize/jev-verified-cascade).
+
+25. **Candidate space comes before the decision model** — Deterministic code when rules are clear; decision models when rules are fuzzy but options exist; generative models when candidates must be invented. Sub-second latency is not always fast enough for a control-loop “reflex”; strong demos usually have a harness that already built state and legal actions.
+    Sources: [BMPI · Jev 的边界](https://www.bmpi.dev/dev/jev-boundary/); [V2EX](https://www.v2ex.com/t/1243613).
+
