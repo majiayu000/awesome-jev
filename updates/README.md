@@ -10,6 +10,7 @@
 | 2026-09-22 | [窗口内深挖 + 上午补扫：JevHarness 族 / jevals / jev-voice / rizzo-flow + 中文客服与财报实测](2026-09-22.md) |
 | 2026-09-23 | [窗口内深挖：AgentJev / Astra-Ares / AnyJev / Jeview / Laya-ultrafast + Langfuse judge + 直播录像 + 工程学中译](2026-09-23.md) |
 | 2026-09-24 | [窗口内深挖：Shapeshift / jev-browser / JevK5 / laya-server / jevc / system-one + 无 key 可核方法文](2026-09-24.md) |
+| 2026-09-28 | [窗口内深挖：ollaya / Kev / jevgrep + MLflow·arXiv judge 与 cascade + 中文「边界」](2026-09-28.md) |
 
 每篇说明发生了什么、对使用者有什么影响，并附原始链接。第三方解读、作者演示和独立测试分别说明；未经复现的数字不写成普遍结论。收录说明见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
 
