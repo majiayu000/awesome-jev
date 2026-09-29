@@ -696,6 +696,7 @@
 | Crowdcheck | Test a post against 10,000 synthetic personas before you publish it. | [网站](https://crowdcheck-ai.vercel.app/) |
 | Jev mood demo | Talk nicely or nastily over time; structured state tracks the mood. | [网站](https://jev-demo.vercel.app) |
 | Jev Room | One sentence becomes six room settings. Jev chooses, the app renders. | [网站](https://jev-room.moe136231.chatgpt.site) |
+| 1 Million Emojis | Shared 1000 × 1000 emoji canvas where Jev joins each stroke with one Choice over named emoji and square pairs, plus a Noul on whether the stroke is unfinished. | [仓库](https://github.com/cwdx/1-million-emojis) · [网站](https://chriswijnia.com/lab/emoji) |
 
 <a id="research"></a>
 
