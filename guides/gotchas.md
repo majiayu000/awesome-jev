@@ -112,6 +112,10 @@
     规则能写死交给代码；规则模糊但候选明确才适合 Jev；连候选都要发现/创造时仍需生成模型。高频控制环里几百毫秒未必够「反射层」；好看的 demo 往往先由 harness 把开放世界压成 state + 合法动作。
     来源：[BMPI · Jev 的边界](https://www.bmpi.dev/dev/jev-boundary/)；[V2EX](https://www.v2ex.com/t/1243613)。
 
+26. **Cascade 省钱≠纠错：相关误差会吃掉升级收益**
+    在 rubric / 量表 judge 上，flash-tier LLM 往往会复述 Jev 最自信时的错误答案；用置信度把不确定题升级给 LLM，主要降低成本，交叉拟合后相对最强单 judge 的准确率增益通常很小（论文报告约 ≤1.5 点）。分级量表上多家 judge 还可能共同低于人类标签（偏低估）。 cascade 前先量「重复错误率」，别假设升级一定抬准。
+    来源：[arXiv:2609.29769](https://arxiv.org/abs/2609.29769)；对照 [arXiv:2609.26550](https://arxiv.org/abs/2609.26550)。
+
 ## English
 
 ### Judgment and wording
@@ -176,4 +180,8 @@
 
 25. **Candidate space comes before the decision model** — Deterministic code when rules are clear; decision models when rules are fuzzy but options exist; generative models when candidates must be invented. Sub-second latency is not always fast enough for a control-loop “reflex”; strong demos usually have a harness that already built state and legal actions.
     Sources: [BMPI · Jev 的边界](https://www.bmpi.dev/dev/jev-boundary/); [V2EX](https://www.v2ex.com/t/1243613).
+
+26. **Cascades save money more than they fix errors when judges share mistakes** — On rubric panels, flash-tier LLM judges often repeat Jev’s most confident wrong answers; confidence-based escalation mainly cuts cost, with cross-fitted gains over the best single judge typically tiny (paper: ≤~1.5 points). On graded scales, several judges can jointly sit below human labels (under-rating). Measure repeated-error rate before expecting an upgrade path to raise accuracy.
+    Sources: [arXiv:2609.29769](https://arxiv.org/abs/2609.29769); cf. [arXiv:2609.26550](https://arxiv.org/abs/2609.26550).
+
 
