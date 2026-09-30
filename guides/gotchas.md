@@ -116,6 +116,10 @@
     在 rubric / 量表 judge 上，flash-tier LLM 往往会复述 Jev 最自信时的错误答案；用置信度把不确定题升级给 LLM，主要降低成本，交叉拟合后相对最强单 judge 的准确率增益通常很小（论文报告约 ≤1.5 点）。分级量表上多家 judge 还可能共同低于人类标签（偏低估）。 cascade 前先量「重复错误率」，别假设升级一定抬准。
     来源：[arXiv:2609.29769](https://arxiv.org/abs/2609.29769)；对照 [arXiv:2609.26550](https://arxiv.org/abs/2609.26550)。
 
+27. **类型化输出 ≠ 防注入：Decision Hijacking 仍可能发生**
+    Choice 只能落在调用方给定的选项里，并不等于「不受不可信内容影响」。InjecAgent 改造实验里，恶意工具结果会抬高攻击目标选项的概率，真正选中目标仍少见（基线约 1.8%）；「忽略先前指令」类 override 反而可能减弱攻击。若攻击者还能读到完整概率向量做自适应改写，验证成功率可升到约 3.5%。成功多与**初始安全/攻击选项间隙小**或**观测几乎全由攻击者文本构成**相关。网关/agent 仍应隔离不可信观测、慎暴露细粒度分数给不可信方，并量自己任务上的决策间隙。
+    来源：[arXiv:2609.28613](https://arxiv.org/abs/2609.28613)。
+
 ## English
 
 ### Judgment and wording
@@ -183,5 +187,8 @@
 
 26. **Cascades save money more than they fix errors when judges share mistakes** — On rubric panels, flash-tier LLM judges often repeat Jev’s most confident wrong answers; confidence-based escalation mainly cuts cost, with cross-fitted gains over the best single judge typically tiny (paper: ≤~1.5 points). On graded scales, several judges can jointly sit below human labels (under-rating). Measure repeated-error rate before expecting an upgrade path to raise accuracy.
     Sources: [arXiv:2609.29769](https://arxiv.org/abs/2609.29769); cf. [arXiv:2609.26550](https://arxiv.org/abs/2609.26550).
+
+27. **Typed outputs ≠ injection-proof (decision hijacking)** — Constraining Choice to a declared set still allows untrusted content to shift probabilities toward an attacker-favored option. In a 510-case InjecAgent reconstruction, base attacks raised mean attacker-target probability (~+0.043) with ~1.8% target selection; override markers often *weakened* influence; adaptive access to the score vector roughly doubled best-so-far attacker mass and raised validated ASR to ~3.5%. Successes clustered on small initial margins or attacker-dominated observations. Isolate untrusted observations, be careful exposing fine-grained scores, and measure margins on your own tasks.
+    Sources: [arXiv:2609.28613](https://arxiv.org/abs/2609.28613).
 
 
