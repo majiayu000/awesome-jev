@@ -13,6 +13,7 @@
 | 2026-09-28 | [窗口内深挖：ollaya / Kev / jevgrep + MLflow·arXiv judge 与 cascade + 中文「边界」](2026-09-28.md) |
 | 2026-09-29 | [窗口内深挖：jevspan NER / jevpipe / jevlint + arXiv rubric judge 与 AITA 负结果](2026-09-29.md) |
 | 2026-09-30 | [窗口内深挖：Jeeves 推理决策 / Jeff v1.1 + Decision Hijacking 与 Jev-Mem](2026-09-30.md) |
+| 2026-10-01 | [窗口内深挖：JEV_sees 视觉桥 + 拒答瓶颈 / 文化人格 / TDM 审计 / 推荐重排](2026-10-01.md) |
 
 每篇说明发生了什么、对使用者有什么影响，并附原始链接。第三方解读、作者演示和独立测试分别说明；未经复现的数字不写成普遍结论。收录说明见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
 

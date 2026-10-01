@@ -120,6 +120,11 @@
     Choice 只能落在调用方给定的选项里，并不等于「不受不可信内容影响」。InjecAgent 改造实验里，恶意工具结果会抬高攻击目标选项的概率，真正选中目标仍少见（基线约 1.8%）；「忽略先前指令」类 override 反而可能减弱攻击。若攻击者还能读到完整概率向量做自适应改写，验证成功率可升到约 3.5%。成功多与**初始安全/攻击选项间隙小**或**观测几乎全由攻击者文本构成**相关。网关/agent 仍应隔离不可信观测、慎暴露细粒度分数给不可信方，并量自己任务上的决策间隙。
     来源：[arXiv:2609.28613](https://arxiv.org/abs/2609.28613)。
 
+
+28. **有答案很准 ≠ 会拒答：算术依赖的 None 瓶颈**
+    菜单里放了正确答案时 Menu Choice 可近满分；同一批题拿掉正确答案、只留错误选项 + 显式 `None`/`other` 时，正确拒答可掉到个位数（论文：裸算术约 99%→7%）。原生 Boolean 对「每个候选是否正确」可达约 99%，说明问题常在**类别拒答接口**而非「算不出来」。两步运算已足够触发；把算完的结果写进 state、或对 `p(None)` 做开发集阈值校准（论文算术例约 0.03）可大幅抬拒答并保住大部分有答案准确率。能确定性计算的仍应留在代码。
+    来源：[arXiv:2609.39496](https://arxiv.org/abs/2609.39496)；对照官方 [jaggedness · 算术](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md)。
+
 ## English
 
 ### Judgment and wording
@@ -190,5 +195,10 @@
 
 27. **Typed outputs ≠ injection-proof (decision hijacking)** — Constraining Choice to a declared set still allows untrusted content to shift probabilities toward an attacker-favored option. In a 510-case InjecAgent reconstruction, base attacks raised mean attacker-target probability (~+0.043) with ~1.8% target selection; override markers often *weakened* influence; adaptive access to the score vector roughly doubled best-so-far attacker mass and raised validated ASR to ~3.5%. Successes clustered on small initial margins or attacker-dominated observations. Isolate untrusted observations, be careful exposing fine-grained scores, and measure margins on your own tasks.
     Sources: [arXiv:2609.28613](https://arxiv.org/abs/2609.28613).
+
+
+28. **Strong selection ≠ reliable rejection when the right answer is missing** — Menu Choice can be near-perfect when the gold option is present, yet drop to single-digit correct rejection on matched menus that keep only wrong options plus an explicit `None`/`other` (paper: ~99% → ~7% on bare arithmetic). Native Boolean verification of the same candidates can still hit ~99% exact-match, so the failure often sits in the **categorical rejection interface**, not “cannot compute.” Two elementary ops already collapse rejection. Writing the computed result into state, or thresholding `p(None)` on a held-out development set (paper example τ≈0.03), recovers most rejection while keeping high present-case accuracy. Keep deterministic arithmetic in code when you can.
+    Sources: [arXiv:2609.39496](https://arxiv.org/abs/2609.39496); cf. official [jaggedness · arithmetic](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
+
 
 
