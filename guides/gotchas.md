@@ -125,6 +125,11 @@
     菜单里放了正确答案时 Menu Choice 可近满分；同一批题拿掉正确答案、只留错误选项 + 显式 `None`/`other` 时，正确拒答可掉到个位数（论文：裸算术约 99%→7%）。原生 Boolean 对「每个候选是否正确」可达约 99%，说明问题常在**类别拒答接口**而非「算不出来」。两步运算已足够触发；把算完的结果写进 state、或对 `p(None)` 做开发集阈值校准（论文算术例约 0.03）可大幅抬拒答并保住大部分有答案准确率。能确定性计算的仍应留在代码。
     来源：[arXiv:2609.39496](https://arxiv.org/abs/2609.39496)；对照官方 [jaggedness · 算术](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md)。
 
+29. **校准好 ≠ 概率公理成立：相关问法的概率可能对不上**
+    同一 state 上分别问「标签是 \(X\)」「不是 \(X\)」「是其余两者之一」「三者选一」时，答案不必服从概率公理。一项无标签电池里，Jev 否定互补平均绝对偏差约 **0.064**（仍约为重复噪声底的五倍），三项单标签 Noul 概率和平均约 **1.14**，同一标签的 yes/no 与 Choice 约差 **0.09**；违规多集中在不确定区。相对 LLM first-token 读出（否定互补偏差约 0.29）Jev 更接近互补，但**仍不能**把不同题型的概率混进同一阈值或把三个独立 Noul 当分布。分区决策优先用 Choice；阈值按题型分别校准。
+    来源：[arXiv:2609.33209](https://arxiv.org/abs/2609.33209)；代码 [bro789/typed-decision-coherence](https://github.com/bro789/typed-decision-coherence)；对照官方 [jaggedness · structural invariants](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md)。
+
+
 ## English
 
 ### Judgment and wording
@@ -200,5 +205,6 @@
 28. **Strong selection ≠ reliable rejection when the right answer is missing** — Menu Choice can be near-perfect when the gold option is present, yet drop to single-digit correct rejection on matched menus that keep only wrong options plus an explicit `None`/`other` (paper: ~99% → ~7% on bare arithmetic). Native Boolean verification of the same candidates can still hit ~99% exact-match, so the failure often sits in the **categorical rejection interface**, not “cannot compute.” Two elementary ops already collapse rejection. Writing the computed result into state, or thresholding `p(None)` on a held-out development set (paper example τ≈0.03), recovers most rejection while keeping high present-case accuracy. Keep deterministic arithmetic in code when you can.
     Sources: [arXiv:2609.39496](https://arxiv.org/abs/2609.39496); cf. official [jaggedness · arithmetic](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
 
-
+29. **Good calibration ≠ axiom coherence across related questions** — Asking “is the label \(X\)”, “is it not \(X\)”, “is it one of the other two”, and “which label?” about the same state need not yield mutually consistent probabilities. On a label-free battery, Jev’s mean absolute negation violation is about **0.064** (~5× its repeat-noise floor); three separate single-label noul probabilities sum to about **1.14** on average; yes/no vs Choice for the same label differ by about **0.09**. Violations concentrate where answers are uncertain. Jev is closer to complementarity than an LLM first-token readout (~0.29), but you still must not mix question forms in one rule or treat three independent nouls as a distribution. Prefer Choice for partitions; calibrate thresholds per question type.
+    Sources: [arXiv:2609.33209](https://arxiv.org/abs/2609.33209); [bro789/typed-decision-coherence](https://github.com/bro789/typed-decision-coherence); cf. official [jaggedness · structural invariants](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
 
