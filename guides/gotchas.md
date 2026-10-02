@@ -112,6 +112,24 @@
     规则能写死交给代码；规则模糊但候选明确才适合 Jev；连候选都要发现/创造时仍需生成模型。高频控制环里几百毫秒未必够「反射层」；好看的 demo 往往先由 harness 把开放世界压成 state + 合法动作。
     来源：[BMPI · Jev 的边界](https://www.bmpi.dev/dev/jev-boundary/)；[V2EX](https://www.v2ex.com/t/1243613)。
 
+26. **Cascade 省钱≠纠错：相关误差会吃掉升级收益**
+    在 rubric / 量表 judge 上，flash-tier LLM 往往会复述 Jev 最自信时的错误答案；用置信度把不确定题升级给 LLM，主要降低成本，交叉拟合后相对最强单 judge 的准确率增益通常很小（论文报告约 ≤1.5 点）。分级量表上多家 judge 还可能共同低于人类标签（偏低估）。 cascade 前先量「重复错误率」，别假设升级一定抬准。
+    来源：[arXiv:2609.29769](https://arxiv.org/abs/2609.29769)；对照 [arXiv:2609.26550](https://arxiv.org/abs/2609.26550)。
+
+27. **类型化输出 ≠ 防注入：Decision Hijacking 仍可能发生**
+    Choice 只能落在调用方给定的选项里，并不等于「不受不可信内容影响」。InjecAgent 改造实验里，恶意工具结果会抬高攻击目标选项的概率，真正选中目标仍少见（基线约 1.8%）；「忽略先前指令」类 override 反而可能减弱攻击。若攻击者还能读到完整概率向量做自适应改写，验证成功率可升到约 3.5%。成功多与**初始安全/攻击选项间隙小**或**观测几乎全由攻击者文本构成**相关。网关/agent 仍应隔离不可信观测、慎暴露细粒度分数给不可信方，并量自己任务上的决策间隙。
+    来源：[arXiv:2609.28613](https://arxiv.org/abs/2609.28613)。
+
+
+28. **有答案很准 ≠ 会拒答：算术依赖的 None 瓶颈**
+    菜单里放了正确答案时 Menu Choice 可近满分；同一批题拿掉正确答案、只留错误选项 + 显式 `None`/`other` 时，正确拒答可掉到个位数（论文：裸算术约 99%→7%）。原生 Boolean 对「每个候选是否正确」可达约 99%，说明问题常在**类别拒答接口**而非「算不出来」。两步运算已足够触发；把算完的结果写进 state、或对 `p(None)` 做开发集阈值校准（论文算术例约 0.03）可大幅抬拒答并保住大部分有答案准确率。能确定性计算的仍应留在代码。
+    来源：[arXiv:2609.39496](https://arxiv.org/abs/2609.39496)；对照官方 [jaggedness · 算术](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md)。
+
+29. **校准好 ≠ 概率公理成立：相关问法的概率可能对不上**
+    同一 state 上分别问「标签是 \(X\)」「不是 \(X\)」「是其余两者之一」「三者选一」时，答案不必服从概率公理。一项无标签电池里，Jev 否定互补平均绝对偏差约 **0.064**（仍约为重复噪声底的五倍），三项单标签 Noul 概率和平均约 **1.14**，同一标签的 yes/no 与 Choice 约差 **0.09**；违规多集中在不确定区。相对 LLM first-token 读出（否定互补偏差约 0.29）Jev 更接近互补，但**仍不能**把不同题型的概率混进同一阈值或把三个独立 Noul 当分布。分区决策优先用 Choice；阈值按题型分别校准。
+    来源：[arXiv:2609.33209](https://arxiv.org/abs/2609.33209)；代码 [bro789/typed-decision-coherence](https://github.com/bro789/typed-decision-coherence)；对照官方 [jaggedness · structural invariants](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md)。
+
+
 ## English
 
 ### Judgment and wording
@@ -176,4 +194,17 @@
 
 25. **Candidate space comes before the decision model** — Deterministic code when rules are clear; decision models when rules are fuzzy but options exist; generative models when candidates must be invented. Sub-second latency is not always fast enough for a control-loop “reflex”; strong demos usually have a harness that already built state and legal actions.
     Sources: [BMPI · Jev 的边界](https://www.bmpi.dev/dev/jev-boundary/); [V2EX](https://www.v2ex.com/t/1243613).
+
+26. **Cascades save money more than they fix errors when judges share mistakes** — On rubric panels, flash-tier LLM judges often repeat Jev’s most confident wrong answers; confidence-based escalation mainly cuts cost, with cross-fitted gains over the best single judge typically tiny (paper: ≤~1.5 points). On graded scales, several judges can jointly sit below human labels (under-rating). Measure repeated-error rate before expecting an upgrade path to raise accuracy.
+    Sources: [arXiv:2609.29769](https://arxiv.org/abs/2609.29769); cf. [arXiv:2609.26550](https://arxiv.org/abs/2609.26550).
+
+27. **Typed outputs ≠ injection-proof (decision hijacking)** — Constraining Choice to a declared set still allows untrusted content to shift probabilities toward an attacker-favored option. In a 510-case InjecAgent reconstruction, base attacks raised mean attacker-target probability (~+0.043) with ~1.8% target selection; override markers often *weakened* influence; adaptive access to the score vector roughly doubled best-so-far attacker mass and raised validated ASR to ~3.5%. Successes clustered on small initial margins or attacker-dominated observations. Isolate untrusted observations, be careful exposing fine-grained scores, and measure margins on your own tasks.
+    Sources: [arXiv:2609.28613](https://arxiv.org/abs/2609.28613).
+
+
+28. **Strong selection ≠ reliable rejection when the right answer is missing** — Menu Choice can be near-perfect when the gold option is present, yet drop to single-digit correct rejection on matched menus that keep only wrong options plus an explicit `None`/`other` (paper: ~99% → ~7% on bare arithmetic). Native Boolean verification of the same candidates can still hit ~99% exact-match, so the failure often sits in the **categorical rejection interface**, not “cannot compute.” Two elementary ops already collapse rejection. Writing the computed result into state, or thresholding `p(None)` on a held-out development set (paper example τ≈0.03), recovers most rejection while keeping high present-case accuracy. Keep deterministic arithmetic in code when you can.
+    Sources: [arXiv:2609.39496](https://arxiv.org/abs/2609.39496); cf. official [jaggedness · arithmetic](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
+
+29. **Good calibration ≠ axiom coherence across related questions** — Asking “is the label \(X\)”, “is it not \(X\)”, “is it one of the other two”, and “which label?” about the same state need not yield mutually consistent probabilities. On a label-free battery, Jev’s mean absolute negation violation is about **0.064** (~5× its repeat-noise floor); three separate single-label noul probabilities sum to about **1.14** on average; yes/no vs Choice for the same label differ by about **0.09**. Violations concentrate where answers are uncertain. Jev is closer to complementarity than an LLM first-token readout (~0.29), but you still must not mix question forms in one rule or treat three independent nouls as a distribution. Prefer Choice for partitions; calibrate thresholds per question type.
+    Sources: [arXiv:2609.33209](https://arxiv.org/abs/2609.33209); [bro789/typed-decision-coherence](https://github.com/bro789/typed-decision-coherence); cf. official [jaggedness · structural invariants](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
 
