@@ -129,6 +129,10 @@
     同一 state 上分别问「标签是 \(X\)」「不是 \(X\)」「是其余两者之一」「三者选一」时，答案不必服从概率公理。一项无标签电池里，Jev 否定互补平均绝对偏差约 **0.064**（仍约为重复噪声底的五倍），三项单标签 Noul 概率和平均约 **1.14**，同一标签的 yes/no 与 Choice 约差 **0.09**；违规多集中在不确定区。相对 LLM first-token 读出（否定互补偏差约 0.29）Jev 更接近互补，但**仍不能**把不同题型的概率混进同一阈值或把三个独立 Noul 当分布。分区决策优先用 Choice；阈值按题型分别校准。
     来源：[arXiv:2609.33209](https://arxiv.org/abs/2609.33209)；代码 [bro789/typed-decision-coherence](https://github.com/bro789/typed-decision-coherence)；对照官方 [jaggedness · structural invariants](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md)。
 
+30. **兼容 `/v1/systemone` ≠ 读完你的 state：托管 Clef 静默截断**
+    Cloudflare Workers AI 托管的 Clef / Clef-Flash 页面写 65,536 上下文，但多方实测 state 只读前约 **2,048 token**，超出部分直接丢弃且照常返回 200；证据在后半段的结论会失败，前置一段文本就能把末尾事实挤出视野。换后端时用「哨兵事实放末尾」测一次，看 `input_tokens` 是否封顶；长 state 先在代码里裁剪，或自托管权重。
+    来源：[ankushchadha/system-one-security](https://github.com/ankushchadha/system-one-security)（实验 01 / 04 与 prior-work）；[matthewyjiang/rho#1388](https://github.com/matthewyjiang/rho/pull/1388)；[haystackeditor/stop-rules#1](https://github.com/haystackeditor/stop-rules/pull/1)。
+
 
 ## English
 
@@ -207,4 +211,7 @@
 
 29. **Good calibration ≠ axiom coherence across related questions** — Asking “is the label \(X\)”, “is it not \(X\)”, “is it one of the other two”, and “which label?” about the same state need not yield mutually consistent probabilities. On a label-free battery, Jev’s mean absolute negation violation is about **0.064** (~5× its repeat-noise floor); three separate single-label noul probabilities sum to about **1.14** on average; yes/no vs Choice for the same label differ by about **0.09**. Violations concentrate where answers are uncertain. Jev is closer to complementarity than an LLM first-token readout (~0.29), but you still must not mix question forms in one rule or treat three independent nouls as a distribution. Prefer Choice for partitions; calibrate thresholds per question type.
     Sources: [arXiv:2609.33209](https://arxiv.org/abs/2609.33209); [bro789/typed-decision-coherence](https://github.com/bro789/typed-decision-coherence); cf. official [jaggedness · structural invariants](https://docs.typesafe.ai/model-jaggedness/jev-1.13.md).
+
+30. **`/v1/systemone`-compatible ≠ reads your whole state (hosted Clef truncates silently)** — Cloudflare Workers AI lists 65,536 context for Clef / Clef-Flash, but several independent reports find the hosted state is cut to about **2,048 tokens** with a normal 200 response; claims whose evidence sits later fail, and prepended text can evict facts at the end. When switching backends, put a sentinel fact at the end and check whether `input_tokens` plateaus; trim long state in code or self-host the weights.
+    Sources: [ankushchadha/system-one-security](https://github.com/ankushchadha/system-one-security) (experiments 01/04, prior-work notes); [matthewyjiang/rho#1388](https://github.com/matthewyjiang/rho/pull/1388); [haystackeditor/stop-rules#1](https://github.com/haystackeditor/stop-rules/pull/1).
 
