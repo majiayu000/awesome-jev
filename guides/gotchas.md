@@ -133,6 +133,10 @@
     Cloudflare Workers AI 托管的 Clef / Clef-Flash 页面写 65,536 上下文，但多方实测 state 只读前约 **2,048 token**，超出部分直接丢弃且照常返回 200；证据在后半段的结论会失败，前置一段文本就能把末尾事实挤出视野。换后端时用「哨兵事实放末尾」测一次，看 `input_tokens` 是否封顶；长 state 先在代码里裁剪，或自托管权重。
     来源：[ankushchadha/system-one-security](https://github.com/ankushchadha/system-one-security)（实验 01 / 04 与 prior-work）；[matthewyjiang/rho#1388](https://github.com/matthewyjiang/rho/pull/1388)；[haystackeditor/stop-rules#1](https://github.com/haystackeditor/stop-rules/pull/1)。
 
+31. **选项顺序会改变准确率：上线前至少打乱一次选项**
+    零样本决策模型对选项存在固定偏好，且可能对选项顺序敏感。一项 Doom 闭环研究在 900 道保留题上发现：各模型出错时偏爱「捡物品」选项，比例为随机的 1.6–1.8 倍；只打乱选项顺序，Strands Decider 的指令准确率就从 0.59 掉到 0.38。评测时用同一批题跑「原顺序 + 打乱顺序」两遍，差距大就别把单次准确率当结论；选项键用有意义的名字。另：用 llama.cpp `/v1/systemone` 跑 Laya / Clef 等编码器模型时，长 state 需加 `-b 2048 -ub 2048`，否则服务端会直接中止。
+    来源：[dexmac221/system-switch](https://github.com/dexmac221/system-switch)（Results in short、Reproducing 第 2 步）。
+
 
 ## English
 
@@ -215,3 +219,5 @@
 30. **`/v1/systemone`-compatible ≠ reads your whole state (hosted Clef truncates silently)** — Cloudflare Workers AI lists 65,536 context for Clef / Clef-Flash, but several independent reports find the hosted state is cut to about **2,048 tokens** with a normal 200 response; claims whose evidence sits later fail, and prepended text can evict facts at the end. When switching backends, put a sentinel fact at the end and check whether `input_tokens` plateaus; trim long state in code or self-host the weights.
     Sources: [ankushchadha/system-one-security](https://github.com/ankushchadha/system-one-security) (experiments 01/04, prior-work notes); [matthewyjiang/rho#1388](https://github.com/matthewyjiang/rho/pull/1388); [haystackeditor/stop-rules#1](https://github.com/haystackeditor/stop-rules/pull/1).
 
+31. **Option order can change accuracy: shuffle options at least once before trusting a score** — Zero-shot decision models can carry fixed option preferences and order sensitivity. In a closed-loop Doom study on 900 held-out questions, models over-chose "collect item" options at 1.6–1.8× chance among their errors, and shuffling the options alone dropped Strands Decider's command accuracy from 0.59 to 0.38. Run evaluations in both original and shuffled order; use meaningful option keys. Also: when serving encoder models (Laya, Clef) through llama.cpp `/v1/systemone`, long states need `-b 2048 -ub 2048` or the server aborts.
+    Sources: [dexmac221/system-switch](https://github.com/dexmac221/system-switch) (Results in short; Reproducing step 2).
