@@ -14,13 +14,19 @@ Awesome Jev 是人工整理的资源清单。README 提供入门与精选项目�
 
 首页和分类页不再维护重复的星数排名。研究笔记中的历史星数保留原日期与来源，不作为当前排名。
 
+## 当前网页的来源
+
+网页的资源目录由 [scripts/build_site.py](scripts/build_site.py) 从 [catalog/FULL.md](catalog/FULL.md) 生成，中文用途说明复用 [README_zh.md](README_zh.md)。生成结果包括 `docs/index.html`、`docs/categories/` 分类页与 `docs/sitemap.xml`；更新与同步检查方法见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+网页首页的精选卡片在生成脚本的 `TEMPLATE` 中人工维护，不会随目录条目或中文 README 自动更新。精选项目的接入条件与带日期的核对范围见[核对记录](guides/featured-review.md)；网站的其他来源说明见 [docs/SOURCE.md](docs/SOURCE.md)。
+
 ## 网页数据的历史来源
 
-`docs/` 保留原网页。其 `data/entries.json` 是一份独立快照，未与当前 Markdown 同步。
+`docs/data/entries.json` 是一份独立的历史快照，未与当前 Markdown 同步，也不再作为当前网页的展示数据。
 
-旧版来源说明称，该数据由 GitHub API 采集结果与当时的 README 精选表合并。它引用的 `/workspace/uploads/discovered_repos.json` 原始文件没有随仓库提交，采集和生成脚本也未提交。因此，目前不能仅凭仓库重做该数据集，也不能据此宣称每条数据已经得到独立核实。
+旧版来源说明称，该数据由 GitHub API 采集结果与当时的 README 精选表合并。它引用的 `/workspace/uploads/discovered_repos.json` 原始文件没有随仓库提交，这份历史快照的采集和生成脚本也未提交。因此，目前不能仅凭仓库重做该数据集，也不能据此宣称每条数据已经得到独立核实。
 
-网页快照中仍有旧版标签与推荐字段，它们不作为当前资源清单的收录标准。本次文档整理未修改这些网页文件。
+历史快照中仍有旧版标签与推荐字段，它们不作为当前资源清单的收录标准，也不代表当前分类与核验状态。
 
 [完整资源目录](catalog/FULL.md) 汇总收集的项目、文档与文章。原始数据保留以便追溯，来源和维护方式见[目录说明](catalog/SOURCE.md)。
 
