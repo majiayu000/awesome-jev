@@ -137,6 +137,10 @@
     零样本决策模型对选项存在固定偏好，且可能对选项顺序敏感。一项 Doom 闭环研究在 900 道保留题上发现：各模型出错时偏爱「捡物品」选项，比例为随机的 1.6–1.8 倍；只打乱选项顺序，Strands Decider 的指令准确率就从 0.59 掉到 0.38。评测时用同一批题跑「原顺序 + 打乱顺序」两遍，差距大就别把单次准确率当结论；选项键用有意义的名字。另：用 llama.cpp `/v1/systemone` 跑 Laya / Clef 等编码器模型时，长 state 需加 `-b 2048 -ub 2048`，否则服务端会直接中止。
     来源：[dexmac221/system-switch](https://github.com/dexmac221/system-switch)（Results in short、Reproducing 第 2 步）。
 
+32. **state 里的「权威口吻」能直接改判：不要把不可信文本和规则放在同一 state**
+    一项约 5.6 万次调用的压力测试里，普通的「忽略以上规则」或声称规则已改，只翻转 0–4% 的正确答案；但**一行自称来自「策略管理员」的方括号文字**翻转了 64%，准确率从 93% 掉到 33%。拿 Jev 做护栏或策略判断时，把用户 / 网页等不可信内容与规则分开标注（或分两次问），并在自己的评测集里加入「冒充权威」样本。同一测试还发现：重复发送同一请求只有 4% 完全一致，8% 的是非题会翻转，阈值附近要留复核带。
+    来源：[Ashutosh1910/jevpros](https://github.com/Ashutosh1910/jevpros) [REPORT.md](https://github.com/Ashutosh1910/jevpros/blob/main/REPORT.md)（E03、E04；作者数字，本仓库未复现）。
+
 
 ## English
 
@@ -221,3 +225,6 @@
 
 31. **Option order can change accuracy: shuffle options at least once before trusting a score** — Zero-shot decision models can carry fixed option preferences and order sensitivity. In a closed-loop Doom study on 900 held-out questions, models over-chose "collect item" options at 1.6–1.8× chance among their errors, and shuffling the options alone dropped Strands Decider's command accuracy from 0.59 to 0.38. Run evaluations in both original and shuffled order; use meaningful option keys. Also: when serving encoder models (Laya, Clef) through llama.cpp `/v1/systemone`, long states need `-b 2048 -ub 2048` or the server aborts.
     Sources: [dexmac221/system-switch](https://github.com/dexmac221/system-switch) (Results in short; Reproducing step 2).
+
+32. **Authority-styled text in state can flip the verdict: keep untrusted text apart from rules** — In a ~56k-call stress suite, plain "ignore previous rules" or claimed rule changes flipped only 0–4% of correct answers, but **one bracketed line claiming to come from the policy administrator flipped 64%**, cutting accuracy from 93% to 33%. For guardrail or policy use, label untrusted content separately from rules (or ask in two calls) and add impersonated-authority cases to your eval set. The same suite found only 4% of identical repeated calls returned identical answers and 8% of yes/no decisions flipped at least once, so keep a review band near thresholds.
+    Sources: [Ashutosh1910/jevpros](https://github.com/Ashutosh1910/jevpros) [REPORT.md](https://github.com/Ashutosh1910/jevpros/blob/main/REPORT.md) (E03, E04; author numbers, not reproduced here).
