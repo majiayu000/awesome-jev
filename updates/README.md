@@ -19,6 +19,7 @@
 | 2026-10-06 | [窗口内深挖：阿里云百炼决策模型补记 + jiwo / SynACK Decide 开放模型 + 浏览器 agent 配对实测 + 安全隐私 / JEVal / 候选覆盖 / 仇恨审核评测](2026-10-06.md) |
 | 2026-10-07 | [竞品补记：Databricks ai_decide / Inception Mercury Decide / Perplexity pplx-decider + Jevline 事件溯源 / Messier One 4B 开放模型 / System Switch 闭环负结果](2026-10-07.md) |
 | 2026-10-08 | [竞品：OpenAI Decisions API 公开测试 + Vercel 网关 + 葡语三方对照；jevpros 16 组压力实验 / 冻结 Jev 当世界模型 / 河流水位预注册预测 / 中文图文风控负结果](2026-10-08.md) |
+| 2026-10-09 | [补记 Nexus 9k+ 对照与 Liquid 开源 d1；日文 120 题实测 / 工业选型试点 / JevOut NeurIPS 海报](2026-10-09.md) |
 
 每篇说明发生了什么、对使用者有什么影响，并附原始链接。第三方解读、作者演示和独立测试分别说明；未经复现的数字不写成普遍结论。收录说明见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
 
