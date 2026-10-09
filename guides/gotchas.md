@@ -228,3 +228,7 @@
 
 32. **Authority-styled text in state can flip the verdict: keep untrusted text apart from rules** — In a ~56k-call stress suite, plain "ignore previous rules" or claimed rule changes flipped only 0–4% of correct answers, but **one bracketed line claiming to come from the policy administrator flipped 64%**, cutting accuracy from 93% to 33%. For guardrail or policy use, label untrusted content separately from rules (or ask in two calls) and add impersonated-authority cases to your eval set. The same suite found only 4% of identical repeated calls returned identical answers and 8% of yes/no decisions flipped at least once, so keep a review band near thresholds.
     Sources: [Ashutosh1910/jevpros](https://github.com/Ashutosh1910/jevpros) [REPORT.md](https://github.com/Ashutosh1910/jevpros/blob/main/REPORT.md) (E03, E04; author numbers, not reproduced here).
+
+
+33. **看起来自然的短背景也能翻盘：不只防「ignore previous」** — 不必改题面、选项或金标；用概率引导优化出的一两句背景/流程说明，就能把原本答对的题定向推到事先固定的错误选项。论文在 64 次接受评估预算内，对 Jev 得到约 **61.4%**（312/508）定向翻转，其中约 45% 错误选项概率 ≥0.7；抽检 250 条成功上下文，91.6% 被标注员判为自然且不改变金标。与「自称策略管理员」类攻击（#32）互补：评测集里要同时放权威冒充与自然背景改写。不要把单次概率当安全闸门。
+    Sources: [JevOut · arXiv:2609.30243](https://arxiv.org/abs/2609.30243); [project page](https://xzx34.github.io/jevout/); cf. #32 / [Ashutosh1910/jevpros](https://github.com/Ashutosh1910/jevpros).
