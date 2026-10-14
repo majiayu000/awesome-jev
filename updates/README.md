@@ -22,6 +22,7 @@
 | 2026-10-09 | [补记 Nexus 9k+ 对照与 Liquid 开源 d1；日文 120 题实测 / 工业选型试点 / JevOut NeurIPS 海报](2026-10-09.md) |
 | 2026-10-12 | [周末窗口：Microsoft-Decision-1 入场 + 三家同请求路由对照 / 975 条工业布尔表达式 / 繁简字形敏感性；补记 Arize 八模型极性反转、BANKING77、问卷编码对照](2026-10-12.md) |
 | 2026-10-13 | [窗口内深挖：社科七复现成本负结果 + TypedBench 改写/Bayes 代价 + Agent 工作流 4500 次；四模型冻结对照](2026-10-13.md) |
+| 2026-10-14 | [窗口内深挖：OpenAI Decisions 路由负结果 + 日语 decision bench；policy→微调数据 / agent-decision 开放模型](2026-10-14.md) |
 
 每篇说明发生了什么、对使用者有什么影响，并附原始链接。第三方解读、作者演示和独立测试分别说明；未经复现的数字不写成普遍结论。收录说明见 [CONTRIBUTING.md](../CONTRIBUTING.md)。
 

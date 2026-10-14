@@ -153,6 +153,10 @@
     TypedBench 在策略可推导的工单优先级上发现：同一规则的友好改写 alone 就把托管 Jev 的准确率拉开约 24 点；几乎所有模型×题型的 ECE 都高于有限样本 null，Jev 系统性偏低自信。在「低估级比高估级更贵」的非对称代价矩阵下，对 Jev / 较强解码器（Kev-9B）用完整概率做 Bayes 决策，实现成本高于直接取 argmax（作者例：Jev 每万次 1,080 → 2,300）；较弱模型上 Bayes 反而省钱。另见 agent 工作流实证：决策层更便宜更快，不保证按成功交付均摊更省。部署前：政策类题用多份措辞报区间；代价非对称时分别比较 argmax 与 Bayes；agent 场景额外看成功率与失败路径成本。
     来源：[TypedBench · arXiv:2610.11392](https://arxiv.org/abs/2610.11392)（§4.2 wording range；Suite I / Table 4）；对照 [arXiv:2610.13092](https://arxiv.org/abs/2610.13092)（resources per delivered success）。均为作者数字，本仓库未复现。
 
+36. **同一套路由描述下，OpenAI Decisions 仍可能系统性偏向最便宜模型**
+    一份 40 条中英「选哪家模型回答」对照（五家候选描述与路由说明逐字相同）里，OpenAI Decisions（`gpt-6-luna`）三轮均值约 31/40，低于同题上的 Jev（39.3）与 Microsoft-Decision-1（37.7）；三轮犯同一批 9 个错，常把本该给更强模型的请求判给最便宜的 `gpt-4.1-mini`。中位时延它最快（约 229 ms），但错路由会把下游成本与质量一起拖偏。做模型路由器时：不要假设「同格式 + 同描述 = 同路由」；用自己的金标题至少跑三轮，看是否稳定偏廉价档。
+    来源：[guming3d/decision_api_benchmark](https://github.com/guming3d/decision_api_benchmark)（Results 表与 README 负结果段；原四家数字引自 Xuefeng Yin 10-11 文）。均为作者数字，本仓库未复现。
+
 
 ## English
 
@@ -249,3 +253,6 @@
 
 35. **Underconfident probabilities can make Bayes costlier than argmax; report policy accuracy as a wording range** — On TypedBench's policy-derivable ticket-priority task, friendly rewordings alone span ~24 points for hosted Jev; ECE exceeds the finite-sample null for almost every model×question, and Jev is systematically underconfident. Under an asymmetric cost matrix (under-prioritising costlier than over-prioritising), acting on Jev / Kev-9B full probabilities (Bayes) *raises* realised cost versus taking the top answer (author example: Jev 1,080 → 2,300 per 10⁴). Weaker models can still benefit from Bayes. Separately, agent-workflow evidence shows cheaper/faster decisions need not lower cost per *delivered* success. Before shipping: report policy questions over paraphrases; compare argmax vs Bayes under your cost matrix; for agents, track success rate and failure-path spend.
     Sources: [TypedBench · arXiv:2610.11392](https://arxiv.org/abs/2610.11392) (§4.2 wording range; Suite I / Table 4); cf. [arXiv:2610.13092](https://arxiv.org/abs/2610.13092) (resources per delivered success). Author numbers, not reproduced here.
+
+36. **Same routing descriptions do not imply the same routes: OpenAI Decisions can systematically prefer the cheapest model** — On a 40-item EN/ZH model-routing set with identical candidate descriptions and instructions, OpenAI Decisions (`gpt-6-luna`) averaged about 31/40 across three runs, below Jev (39.3) and Microsoft-Decision-1 (37.7) on the same items; the same nine mistakes repeated every run, often sending requests that needed stronger models to the cheapest `gpt-4.1-mini`. It was the fastest at ~229 ms median, but a wrong route still burns downstream cost and quality. When building a model router: do not assume shared format plus shared wording yields shared routing; run your own gold set at least three times and check for a stable cheap-tier bias.
+    Sources: [guming3d/decision_api_benchmark](https://github.com/guming3d/decision_api_benchmark) (Results table and README negative-result note; the other four engines' numbers are copied from Xuefeng Yin's 11 Oct write-up). Author numbers, not reproduced here.
