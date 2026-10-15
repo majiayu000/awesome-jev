@@ -157,6 +157,10 @@
     一份 40 条中英「选哪家模型回答」对照（五家候选描述与路由说明逐字相同）里，OpenAI Decisions（`gpt-6-luna`）三轮均值约 31/40，低于同题上的 Jev（39.3）与 Microsoft-Decision-1（37.7）；三轮犯同一批 9 个错，常把本该给更强模型的请求判给最便宜的 `gpt-4.1-mini`。中位时延它最快（约 229 ms），但错路由会把下游成本与质量一起拖偏。做模型路由器时：不要假设「同格式 + 同描述 = 同路由」；用自己的金标题至少跑三轮，看是否稳定偏廉价档。
     来源：[guming3d/decision_api_benchmark](https://github.com/guming3d/decision_api_benchmark)（Results 表与 README 负结果段；原四家数字引自 Xuefeng Yin 10-11 文）。均为作者数字，本仓库未复现。
 
+37. **`jev-latest` 会在约一周后切到 1.14；调过阈值的服务要钉版本号，图像 / Box 还要逐请求带 header**
+    Jev 1.14.0 于 10-14 先以 `jev-preview` 上线，官方说 `jev-latest` 约一周后指向 1.14，别名一动，同一份代码的概率输出就可能变。若你按 1.13 调过置信阈值，`model` 直接写 `jev-1.13.0`，在自己的金标上比完再切。新特性都是逐请求开关：图像和 `box` 要 `TypeSafe-Danger-Zone-Images: true`（缺了直接 `400`），长上下文要 `TypeSafe-Danger-Zone-Long-Context: true`（262k，同价但更慢、更不准）；`box` 只认 1.14。`box` 没有「不存在」这个答案，总会指向某处——先用 noul 判目标在不在，或把低 confidence 当作没有。
+    来源：[TypeSafe · Jev 1.14 博文](https://typesafe.ai/blog/jev-1-14)（jev-1.14.0 / danger zone 段）；[Models · Aliases / Long context](https://docs.typesafe.ai/models)；[Images](https://docs.typesafe.ai/images)（400 状态说明）；Box 无 none 见 [RINNECODER/jev-box-study](https://github.com/RINNECODER/jev-box-study)（Building with Jev Box）。
+
 
 ## English
 
@@ -256,3 +260,6 @@
 
 36. **Same routing descriptions do not imply the same routes: OpenAI Decisions can systematically prefer the cheapest model** — On a 40-item EN/ZH model-routing set with identical candidate descriptions and instructions, OpenAI Decisions (`gpt-6-luna`) averaged about 31/40 across three runs, below Jev (39.3) and Microsoft-Decision-1 (37.7) on the same items; the same nine mistakes repeated every run, often sending requests that needed stronger models to the cheapest `gpt-4.1-mini`. It was the fastest at ~229 ms median, but a wrong route still burns downstream cost and quality. When building a model router: do not assume shared format plus shared wording yields shared routing; run your own gold set at least three times and check for a stable cheap-tier bias.
     Sources: [guming3d/decision_api_benchmark](https://github.com/guming3d/decision_api_benchmark) (Results table and README negative-result note; the other four engines' numbers are copied from Xuefeng Yin's 11 Oct write-up). Author numbers, not reproduced here.
+
+37. **`jev-latest` moves to 1.14 in about a week: pin the version if you tuned thresholds, and send the danger-zone headers per request** — Jev 1.14.0 shipped on 14 Oct under `jev-preview`; TypeSafe says `jev-latest` will point to it about a week later, so the same code can start returning different probabilities. If your confidence thresholds were tuned on 1.13, send `jev-1.13.0` explicitly and switch only after re-checking on your own gold set. The new features are per-request opt-ins: images and the `box` type need `TypeSafe-Danger-Zone-Images: true` (otherwise `400`), long context needs `TypeSafe-Danger-Zone-Long-Context: true` (262k tokens, same price, slower and less accurate); `box` requires 1.14. `box` has no "nothing here" answer and always points somewhere, so gate it with a presence noul or treat low confidence as absent.
+    Sources: [TypeSafe · Jev 1.14 post](https://typesafe.ai/blog/jev-1-14) (jev-1.14.0 / danger zone); [Models · Aliases / Long context](https://docs.typesafe.ai/models); [Images](https://docs.typesafe.ai/images) (400 status); no-"none" behaviour from [RINNECODER/jev-box-study](https://github.com/RINNECODER/jev-box-study) (Building with Jev Box).
